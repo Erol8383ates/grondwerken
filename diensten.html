@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <title>Projecten - Grondwerken BV</title>
+   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;600&display=swap" rel="stylesheet" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+   <style>
+      :root {
+         --primary: #f57c00;
+         --dark: #1c1c1c;
+         --gray: #6c757d;
+         --blue: #1e3a5f;
+         --white: #ffffff;
+         --light: #f8f9fa;
+         --font-family: 'Titillium Web', sans-serif;
+      }
+
+      html {
+         font-size: 62.5%;
+         scroll-behavior: smooth;
+      }
+
+      body {
+         margin: 0;
+         font-family: var(--font-family);
+         font-size: 1.6rem; /* base font size same as home */
+         line-height: 1.6;
+         background: var(--light);
+         color: var(--dark);
+      }
+
+      header {
+         background: var(--blue);
+         color: var(--white);
+         padding: 2rem;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+         position: sticky;
+         top: 0;
+         z-index: 1000;
+      }
+
+      .header-container {
+         max-width: 1200px;
+         margin: auto;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         flex-wrap: wrap;
+      }
+
+         .header-container h1 {
+            font-size: 3rem;
+            margin: 0;
+         }
+
+      nav ul {
+         display: flex;
+         list-style: none;
+         gap: 2rem;
+         padding: 0;
+         margin: 0;
+      }
+
+      nav a {
+         text-decoration: none;
+         color: var(--white);
+         font-size: 1.6rem;
+         padding: 0.5rem 1rem;
+         border-radius: 0.3rem;
+         transition: background 0.3s ease;
+      }
+
+         nav a:hover {
+            background: var(--primary);
+         }
+
+      main {
+         max-width: 1200px;
+         margin: 4rem auto;
+         padding: 0 2rem;
+      }
+
+      h2.section-title {
+         font-size: 1.8rem; /* Slightly bigger but close to body */
+         font-weight: 600;
+         margin-bottom: 2rem;
+         color: var(--blue);
+         border-left: 6px solid var(--primary);
+         padding-left: 1rem;
+      }
+
+      .projects-grid {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+         gap: 2.5rem;
+      }
+
+      .project-card {
+         background: white;
+         border-radius: 0.8rem;
+         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+         overflow: hidden;
+         display: flex;
+         flex-direction: column;
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+         .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+         }
+
+      .project-image {
+         width: 100%;
+         height: 200px;
+         object-fit: cover;
+      }
+
+      .project-content {
+         padding: 1.8rem 2rem;
+         flex-grow: 1;
+         display: flex;
+         flex-direction: column;
+         justify-content: space-between;
+      }
+
+      .project-title {
+         font-size: 1.6rem; /* same as body */
+         font-weight: 600;
+         margin: 0 0 0.6rem 0;
+         color: var(--primary);
+      }
+
+      .project-desc {
+         font-size: 1.6rem; /* same as body */
+         font-weight: 400;
+         line-height: 1.5;
+         margin-bottom: 1.2rem;
+         color: var(--dark);
+         flex-grow: 1;
+      }
+
+      .project-link {
+         font-size: 1.6rem; /* same as body */
+         font-weight: 600;
+         color: var(--blue);
+         text-decoration: none;
+         align-self: flex-start;
+         border-bottom: 2px solid transparent;
+         transition: border-color 0.3s ease;
+      }
+
+         .project-link:hover {
+            border-color: var(--primary);
+         }
+
+      footer {
+         background: var(--gray);
+         color: white;
+         text-align: center;
+         padding: 2rem 1rem;
+         font-size: 1.4rem;
+      }
+
+      .footer-nav {
+         margin-top: 1rem;
+      }
+
+         .footer-nav a {
+            margin: 0 1rem;
+            color: white;
+            text-decoration: none;
+            font-size: 1.6rem;
+         }
+
+            .footer-nav a:hover {
+               color: var(--primary);
+            }
+
+      .social__list {
+         list-style: none;
+         padding: 0;
+         margin-top: 2rem;
+         display: flex;
+         justify-content: center;
+         gap: 1.5rem;
+         flex-wrap: wrap;
+      }
+
+         .social__list li a {
+            color: white;
+            font-size: 2.4rem;
+            transition: opacity 0.3s;
+         }
+
+            .social__list li a:hover {
+               opacity: 0.6;
+            }
+
+      /* Responsive tweaks */
+      @media (max-width: 768px) {
+         .projects-grid {
+            grid-template-columns: 1fr;
+         }
+
+         nav ul {
+            flex-direction: column;
+            gap: 1rem;
+         }
+
+         .header-container {
+            flex-direction: column;
+            gap: 1rem;
+         }
+      }
+   </style>
+</head>
+
+<body>
+   <header>
+      <div class="header-container">
+         <h1>Grondwerken BV</h1>
+         <nav>
+            <ul>
+               <li><a href="index.html">Home</a></li>
+               <li><a href="diensten.html">Diensten</a></li>
+               <li><a href="projecten.html" aria-current="page">Projecten</a></li>
+               <li><a href="photos.html">Contact</a></li>
+               <li><a href="contact.html">Contact</a></li>
+            </ul>
+         </nav>
+      </div>
+   </header>
+
+   <main>
+      <h2 class="section-title">Onze Projecten</h2>
+
+      <div class="projects-grid">
+         <article class="project-card">
+            <img src="https://images.unsplash.com/photo-1590080877777-4b3e6313ebd4?auto=format&fit=crop&w=600&q=80" alt="Wegenaanleg project" class="project-image" />
+            <div class="project-content">
+               <h3 class="project-title">Wegenaanleg</h3>
+               <p class="project-desc">Uitgebreide aanleg van stedelijke wegen met duurzame materialen en modern machinepark.</p>
+               <a href="#" class="project-link">Lees meer</a>
+            </div>
+         </article>
+
+         <article class="project-card">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Rioleringswerken project" class="project-image" />
+            <div class="project-content">
+               <h3 class="project-title">Rioleringswerken</h3>
+               <p class="project-desc">Professionele aanleg en renovatie van rioleringsnetwerken voor optimale afwatering en milieuveiligheid.</p>
+               <a href="#" class="project-link">Lees meer</a>
+            </div>
+         </article>
+
+         <article class="project-card">
+            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=80" alt="Leidingaanleg project" class="project-image" />
+            <div class="project-content">
+               <h3 class="project-title">Leidingaanleg</h3>
+               <p class="project-desc">Efficiënte aanleg van nutsleidingen met strikte naleving van veiligheidsnormen en klantgerichte oplossingen.</p>
+               <a href="#" class="project-link">Lees meer</a>
+            </div>
+         </article>
+
+         <article class="project-card">
+            <img src="https://images.unsplash.com/photo-1601924638867-3f01c5b6a9a6?auto=format&fit=crop&w=600&q=80" alt="Kasseien project" class="project-image" />
+            <div class="project-content">
+               <h3 class="project-title">Kasseien</h3>
+               <p class="project-desc">Traditionele en moderne bestratingstechnieken voor duurzame en esthetische kassei-wegen en pleinen.</p>
+               <a href="#" class="project-link">Lees meer</a>
+            </div>
+         </article>
+
+         <article class="project-card">
+            <img src="https://images.unsplash.com/photo-1562184559-36e8636ca35d?auto=format&fit=crop&w=600&q=80" alt="Opritten project" class="project-image" />
+            <div class="project-content">
+               <h3 class="project-title">Opritten</h3>
+               <p class="project-desc">Constructie van duurzame en functionele opritten met oog voor detail en afwerking.</p>
+               <a href="#" class="project-link">Lees meer</a>
+            </div>
+         </article>
+
+         <article class="project-card">
+            <img src="https://images.unsplash.com/photo-1526947425960-945c6e728ed3?auto=format&fit=crop&w=600&q=80" alt="Sleufwerken project" class="project-image" />
+            <div class="project-content">
+               <h3 class="project-title">Sleufwerken</h3>
+               <p class="project-desc">Precisie-sleufgravingen voor infrastructuur en kabelwerkzaamheden met minimale verstoring van de omgeving.</p>
+               <a href="#" class="project-link">Lees meer</a>
+            </div>
+         </article>
+      </div>
+   </main>
+
+   <footer>
+      <p>&copy; 2025 Grondwerken BV - Alle rechten voorbehouden</p>
+      <div class="footer-nav">
+         <a href="diensten.html">Diensten</a>
+         <a href="projecten.html">Projecten</a>
+         <a href="contact.html">Contact</a>
+      </div>
+      <ul class="social__list">
+         <li><a href="#" aria-label="facebook"><span class="fa fa-facebook-official"></span></a></li>
+         <li><a href="#" aria-label="instagram"><span class="fa fa-instagram"></span></a></li>
+         <li><a href="#" aria-label="snapchat"><span class="fa fa-snapchat"></span></a></li>
+         <li><a href="#" aria-label="pinterest"><span class="fa fa-pinterest-p"></span></a></li>
+         <li><a href="#" aria-label="twitter"><span class="fa fa-twitter"></span></a></li>
+         <li><a href="#" aria-label="linkedin"><span class="fa fa-linkedin"></span></a></li>
+      </ul>
+   </footer>
+</body>
+
+</html>

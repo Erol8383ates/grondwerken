@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fotos - Grondwerken BV</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --primary: #f57c00;
+      --dark: #1c1c1c;
+      --gray: #6c757d;
+      --blue: #1e3a5f;
+      --white: #ffffff;
+      --light: #f8f9fa;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 62.5%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Titillium Web', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+      font-size: 1.6rem;
+    }
+
+    header {
+      background: var(--blue);
+      color: var(--white);
+      padding: 2.5rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+      font-size: 3.2rem;
+    }
+
+    nav {
+      margin-top: 1.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 0;
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 1.6rem;
+      padding: 0.5rem 1.2rem;
+      border-radius: 0.3rem;
+      transition: background 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: var(--primary);
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+
+    h2 {
+      font-size: 3.2rem;
+      color: var(--blue);
+      margin-bottom: 3rem;
+      border-left: 6px solid var(--primary);
+      padding-left: 1rem;
+    }
+
+    .photos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .photo-item {
+      background: var(--white);
+      border-radius: 0.8rem;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .photo-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .photo-item img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      aspect-ratio: 16/9;
+    }
+
+    .photo-caption {
+      font-size: 1.6rem;
+      padding: 1.2rem;
+      color: var(--dark);
+    }
+
+    footer {
+      background: var(--gray);
+      color: var(--white);
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 5rem;
+    }
+
+    .social-icons {
+      margin-top: 1rem;
+    }
+
+    .social-icons a {
+      margin: 0 1rem;
+      color: var(--white);
+      font-size: 2rem;
+      transition: opacity 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Grondwerken BV</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="diensten.html">Diensten</a></li>
+        <li><a href="projecten.html">Projecten</a></li>
+        <li><a href="photos.html" class="active">Fotos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Foto's van onze projecten</h2>
+
+    <section class="photos-grid">
+      <div class="photo-item">
+        <img src="https://images.unsplash.com/photo-1?auto=format&fit=crop&w=800&q=80" alt="Werk 1" />
+        <p class="photo-caption">Aanleg van fundering</p>
+      </div>
+
+      <div class="photo-item">
+        <img src="https://images.unsplash.com/photo-2?auto=format&fit=crop&w=800&q=80" alt="Werk 2" />
+        <p class="photo-caption">Grondwerken bij nieuwbouw</p>
+      </div>
+
+      <div class="photo-item">
+        <img src="https://images.unsplash.com/photo-3?auto=format&fit=crop&w=800&q=80" alt="Werk 3" />
+        <p class="photo-caption">Sleufwerken en nutsleidingen</p>
+      </div>
+
+      <div class="photo-item">
+        <img src="https://images.unsplash.com/photo-4?auto=format&fit=crop&w=800&q=80" alt="Werk 4" />
+        <p class="photo-caption">Oprit in aanleg</p>
+      </div>
+
+      <div class="photo-item">
+        <img src="https://images.unsplash.com/photo-5?auto=format&fit=crop&w=800&q=80" alt="Werk 5" />
+        <p class="photo-caption">Werf met graafmachines</p>
+      </div>
+
+      <div class="photo-item">
+        <img src="https://images.unsplash.com/photo-6?auto=format&fit=crop&w=800&q=80" alt="Werk 6" />
+        <p class="photo-caption">Rioleringswerken in stad</p>
+      </div>
+
+      <div class="photo-item">
+        <img src="https://images.unsplash.com/photo-7?auto=format&fit=crop&w=800&q=80" alt="Werk 7" />
+        <p class="photo-caption">Verharding industrieterrein</p>
+      </div>
+
+      <div class="photo-item">
+        <img src="https://images.unsplash.com/photo-8?auto=format&fit=crop&w=800&q=80" alt="Werk 8" />
+        <p class="photo-caption">Milieuvriendelijke afwatering</p>
+      </div>
+
+      <!-- Voeg hier meer foto's toe door dit blok te kopiëren -->
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Grondwerken BV - Alle rechten voorbehouden</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </footer>
+</body>
+</html>

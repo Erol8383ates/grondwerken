@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Grondwerken & Infrastructuur</title>
+   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;600&display=swap" rel="stylesheet" />
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+   <style>
+      :root {
+         --primary: #f57c00;
+         --dark: #1c1c1c;
+         --gray: #6c757d;
+         --blue: #1e3a5f;
+         --white: #ffffff;
+         --light: #f8f9fa;
+      }
+
+      html {
+         font-size: 62.5%;
+         scroll-behavior: smooth;
+      }
+
+      body {
+         margin: 0;
+         font-family: 'Titillium Web', sans-serif;
+         background: var(--light);
+         color: var(--dark);
+      }
+
+      header {
+         background: var(--blue);
+         color: var(--white);
+         padding: 2rem;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+         position: sticky;
+         top: 0;
+         z-index: 1000;
+      }
+
+      .header-container {
+         max-width: 1200px;
+         margin: auto;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         flex-wrap: wrap;
+      }
+
+         .header-container h1 {
+            font-size: 3rem;
+         }
+
+      nav ul {
+         display: flex;
+         list-style: none;
+         gap: 2rem;
+         padding: 0;
+         margin: 0;
+      }
+
+      nav a {
+         text-decoration: none;
+         color: var(--white);
+         font-size: 1.6rem;
+         padding: 0.5rem 1rem;
+         border-radius: 0.3rem;
+         transition: background 0.3s ease;
+      }
+
+         nav a:hover {
+            background: var(--primary);
+         }
+
+      .hero {
+         background: url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+         height: 70vh;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         text-align: center;
+         color: white;
+         position: relative;
+      }
+
+         .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+         }
+
+         .hero div {
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1.5s ease-out;
+         }
+
+      @keyframes fadeIn {
+         from {
+            opacity: 0;
+            transform: translateY(20px);
+         }
+
+         to {
+            opacity: 1;
+            transform: translateY(0);
+         }
+      }
+
+      .hero h2 {
+         font-size: 4.4rem;
+         margin-bottom: 2rem;
+      }
+
+      .cta {
+         font-size: 2rem;
+         background: var(--primary);
+         padding: 1rem 3rem;
+         border-radius: 0.5rem;
+         color: white;
+         text-decoration: none;
+         transition: background 0.3s ease;
+      }
+
+         .cta:hover {
+            background: #d96a00;
+         }
+
+      section {
+         padding: 6rem 2rem;
+      }
+
+      .services,
+      .projects,
+      .contact {
+         max-width: 1200px;
+         margin: auto;
+      }
+
+         .services h2,
+         .projects h2,
+         .contact h2 {
+            font-size: 3.2rem;
+            color: var(--blue);
+            margin-bottom: 3rem;
+            border-left: 6px solid var(--primary);
+            padding-left: 1rem;
+         }
+
+      /* Added flex container for services with left side navigation and right side content */
+
+      .services-container {
+         display: flex;
+         gap: 3rem;
+         flex-wrap: wrap;
+      }
+
+      .dienst-list {
+         flex: 1 1 250px;
+         background: white;
+         padding: 2rem;
+         border-radius: 0.8rem;
+         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+         max-height: 600px;
+         overflow-y: auto;
+      }
+
+         .dienst-list h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+         }
+
+         .dienst-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+         }
+
+            .dienst-list ul li {
+               padding: 0.8rem 0;
+               border-bottom: 1px solid #eee;
+               font-size: 1.6rem;
+               cursor: pointer;
+               transition: color 0.3s ease;
+            }
+
+               .dienst-list ul li:hover {
+                  color: var(--primary);
+               }
+
+      .dienst-detail {
+         flex: 3 1 600px;
+         background: white;
+         padding: 3rem 2.5rem;
+         border-radius: 0.8rem;
+         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+         font-size: 1.8rem;
+         line-height: 1.6;
+         color: var(--dark);
+         min-height: 600px;
+      }
+
+      /* Service item styling (like before) for other sections if needed */
+
+      .service-list {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+         gap: 2.5rem;
+      }
+
+      .service {
+         background: white;
+         padding: 2.5rem;
+         border-radius: 0.8rem;
+         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+         .service:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+         }
+
+         .service h3 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+         }
+
+         .service p {
+            font-size: 1.6rem;
+         }
+
+      /* Projects grid styling (if you want to keep the projects section) */
+
+      .projects .grid {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+         gap: 2rem;
+      }
+
+      .projects img {
+         width: 100%;
+         border-radius: 0.8rem;
+         transition: transform 0.3s, box-shadow 0.3s;
+         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+         .projects img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+         }
+
+      .contact p {
+         font-size: 1.6rem;
+         margin: 1rem 0;
+      }
+
+      footer {
+         background: var(--gray);
+         color: white;
+         text-align: center;
+         padding: 2rem 1rem;
+         font-size: 1.4rem;
+      }
+
+      .footer-nav {
+         margin-top: 1rem;
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+         gap: 1.5rem;
+      }
+
+         .footer-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.4rem;
+            padding: 0.3rem 0.7rem;
+            border-radius: 0.3rem;
+            transition: background 0.3s ease;
+         }
+
+            .footer-nav a:hover {
+               background: var(--primary);
+            }
+
+      .social__list {
+         list-style: none;
+         padding: 0;
+         margin-top: 2rem;
+         display: flex;
+         justify-content: center;
+         gap: 1.5rem;
+         flex-wrap: wrap;
+      }
+
+         .social__list li a {
+            color: white;
+            font-size: 2.4rem;
+            transition: opacity 0.3s;
+         }
+
+            .social__list li a:hover {
+               opacity: 0.6;
+            }
+   </style>
+</head>
+
+<body>
+   <header>
+      <div class="header-container">
+         <h1>Grondwerken BV</h1>
+         <nav>
+            <ul>
+               <li><a href="index.html">Home</a></li>
+               <li><a href="diensten.html">Diensten</a></li>
+               <li><a href="projecten.html">Projecten</a></li>
+               <li><a href="photos.html">Photos</a></li>
+               <li><a href="contact.html">Contact</a></li>
+            </ul>
+         </nav>
+      </div>
+   </header>
+
+   <section class="hero">
+      <div>
+         <h2>Uw partner in grondwerken en infrastructuur</h2>
+         <a href="#contact" class="cta">Contacteer ons</a>
+      </div>
+   </section>
+
+   <section class="services" id="diensten">
+      <h2>Onze Diensten</h2>
+      <div class="services-container">
+         <aside class="dienst-list">
+            <h3>Diensten</h3>
+            <ul>
+               <li>Kasseien</li>
+               <li>Grondwerken</li>
+               <li>Rioleringswerken</li>
+               <li>Opritten</li>
+               <li>Sleufwerken</li>
+               <li>Nutsleidingen</li>
+               <li>Wegenbouw</li>
+               <li>Verhardingen</li>
+               <li>Milieuvriendelijke oplossingen</li>
+               <li>Grondstabilisatie</li>
+            </ul>
+         </aside>
+
+         <article class="dienst-detail">
+            <h3>Meer informatie over onze diensten</h3>
+            <p>
+               Wij bieden een breed scala aan grondwerken en infrastructuurwerken aan, van kasseien leggen tot complexe
+               rioleringswerken. Onze ervaren teams zorgen voor kwaliteit, veiligheid en duurzaamheid in elk project.
+            </p>
+            <p>
+               Contacteer ons voor een vrijblijvende offerte of meer informatie over een specifieke dienst.
+            </p>
+         </article>
+      </div>
+   </section>
+
+   <footer>
+      <p>&copy; 2025 Grondwerken BV - Alle rechten voorbehouden</p>
+      <div class="footer-nav">
+         <a href="#kasseien">Kasseien</a>
+         <a href="#grondwerken">Grondwerken</a>
+         <a href="#riolering">Rioleringswerken</a>
+         <a href="#opritten">Opritten</a>
+         <a href="#sleufwerken">Sleufwerken</a>
+         <a href="#nutsleidingen">Nutsleidingen</a>
+         <a href="#wegenbouw">Wegenbouw</a>
+         <a href="#verhardingen">Verhardingen</a>
+         <a href="#milieu">Milieuvriendelijke oplossingen</a>
+         <a href="#grondstabilisatie">Grondstabilisatie</a>
+      </div>
+      <ul class="social__list">
+<li><a href="https://www.facebook.com/grondwerkenbv" target="_blank" aria-label="facebook"><span class="fa fa-facebook w3-hover-opacity"></span></a></li>
+
+<li><a href="https://www.instagram.com/grondwerkenbv" target="_blank" aria-label="instagram"><span class="fa fa-instagram w3-hover-opacity"></span></a></li>
+
+   <li>
+  <a href="https://wa.me/32470810515" target="_blank" aria-label="whatsapp">
+    <span class="fa fa-whatsapp w3-hover-opacity"></span>
+  </a>
+</li>
+         <li><a href="#" aria-label="pinterest"><span class="fa fa-pinterest-p w3-hover-opacity"></span></a></li>
+         <li><a href="#" aria-label="twitter"><span class="fa fa-twitter w3-hover-opacity"></span></a></li>
+         <li><a href="#" aria-label="linkedin"><span class="fa fa-linkedin w3-hover-opacity"></span></a></li>
+      </ul>
+   </footer>
+</body>
+
+</html>
