@@ -1,608 +1,411 @@
 <!DOCTYPE html>
-<html lang="nl">
-
+<html lang="tr">
 <head>
    <meta charset="UTF-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <title>Grondwerken & Infrastructuur | Grondwerken BV</title>
-   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;600&display=swap" rel="stylesheet" />
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" />
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+   <title>Grondwerken BV</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
    <style>
       :root {
-         --primary: #f57c00;
-         --dark: #1c1c1c;
-         --gray: #6c757d;
-         --blue: #1e3a5f;
+         --blue: #004080;
          --white: #ffffff;
-         --light: #f8f9fa;
-         --shadow-light: rgba(0, 0, 0, 0.1);
+         --gray: #2e2e2e;
+         --accent: #f1c40f;
+         --text-dark: #333;
+         --bg-light: #f4f4f4;
+         --primary: #00796b;
+         --secondary: #004d40;
       }
 
-      html {
-         font-size: 62.5%;
-         scroll-behavior: smooth;
+      * {
+         box-sizing: border-box;
+         margin: 0;
+         padding: 0;
       }
 
       body {
-         margin: 0;
-         font-family: 'Titillium Web', sans-serif;
-         background: var(--light);
-         color: var(--dark);
+         font-family: 'Rubik', sans-serif;
+         background: white;
+         color: var(--text-dark);
          line-height: 1.6;
       }
 
-      header {
+      /* HEADER */
+      nav {
          background: var(--blue);
          color: var(--white);
-         padding: 2rem 1.5rem;
-         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-         position: sticky;
-         top: 0;
-         z-index: 1000;
-         transition: padding 0.3s ease;
-      }
-
-         header.shrink {
-            padding: 1rem 1.5rem;
-            box-shadow: 0 6px 12px var(--shadow-light);
-         }
-
-      .header-container {
-         max-width: 1200px;
-         margin: auto;
+         padding: 0 30px;
          display: flex;
          justify-content: space-between;
          align-items: center;
-         flex-wrap: wrap;
+         height: 70px;
+         position: sticky;
+         top: 0;
+         z-index: 1000;
       }
 
-         .header-container h1 {
-            font-size: 3rem;
+         nav .nav-left {
             font-weight: 600;
-            letter-spacing: 2px;
-            user-select: none;
+            font-size: 1.6rem;
+            letter-spacing: 1px;
+            color: var(--white);
          }
 
-      nav ul {
-         display: flex;
-         list-style: none;
-         gap: 2rem;
-         padding: 0;
-         margin: 0;
-      }
+         nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+         }
 
-      nav a {
-         text-decoration: none;
+            nav ul li a {
+               color: var(--white);
+               text-decoration: none;
+               font-weight: 500;
+               font-size: 1rem;
+               padding: 10px 0;
+               border-bottom: 2px solid transparent;
+               transition: all 0.3s ease;
+            }
+
+               nav ul li a:hover,
+               nav ul li a:focus {
+                  color: var(--accent);
+                  border-bottom: 2px solid var(--accent);
+               }
+
+      .menu-toggle {
+         display: none;
+         font-size: 1.8rem;
+         cursor: pointer;
          color: var(--white);
-         font-size: 1.6rem;
-         padding: 0.5rem 1rem;
-         border-radius: 0.3rem;
-         transition: background 0.3s ease, transform 0.2s ease;
-         font-weight: 600;
       }
 
-         nav a:hover,
-         nav a:focus {
-            background: var(--primary);
-            outline: none;
-            transform: scale(1.05);
+      @media (max-width: 768px) {
+         .menu-toggle {
+            display: block;
          }
 
-      /* Hero section */
-      .hero {
-         background: url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
-         height: 75vh;
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         text-align: center;
-         color: white;
-         position: relative;
-         padding: 0 1.5rem;
-      }
-
-         .hero::after {
-            content: '';
+         nav ul {
+            display: none;
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.55);
-            z-index: 0;
+            top: 70px;
+            right: 0;
+            flex-direction: column;
+            background: var(--blue);
+            width: 220px;
+            border-radius: 0 0 0 12px;
+            box-shadow: -3px 5px 10px rgba(0, 0, 0, 0.1);
          }
 
-         .hero > div {
-            position: relative;
-            z-index: 1;
-            animation: fadeIn 1.5s ease-out;
-            max-width: 900px;
-            margin: 0 auto;
-         }
+            nav ul.active {
+               display: flex;
+            }
 
-      @keyframes fadeIn {
-         from {
-            opacity: 0;
-            transform: translateY(20px);
-         }
-
-         to {
-            opacity: 1;
-            transform: translateY(0);
-         }
+            nav ul li {
+               text-align: right;
+               padding: 12px 20px;
+            }
       }
 
-      .hero h2 {
-         font-size: 4.8rem;
-         margin-bottom: 2rem;
-         font-weight: 700;
-         letter-spacing: 1px;
-         text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+      /* FOOTER */
+      footer {
+         background: var(--blue);
+         color: var(--white);
+         text-align: center;
+         padding: 25px 10px;
+         font-size: 0.95rem;
       }
 
-      .cta {
+      h2.section-title {
+         text-align: center;
          font-size: 2.2rem;
-         background: var(--primary);
-         padding: 1rem 3.5rem;
-         border-radius: 0.6rem;
-         color: white;
-         text-decoration: none;
-         transition: background 0.3s ease, box-shadow 0.3s ease;
-         box-shadow: 0 4px 15px rgba(245, 124, 0, 0.5);
-         font-weight: 700;
-         display: inline-block;
-         letter-spacing: 0.05em;
+         margin: 50px 0 30px;
+         color: var(--secondary);
       }
 
-         .cta:hover,
-         .cta:focus {
-            background: #d96a00;
-            box-shadow: 0 6px 20px rgba(217, 106, 0, 0.7);
-            outline: none;
-         }
-
-      section {
-         padding: 6rem 2rem;
-      }
-
-      .services,
-      .projects,
-      .contact {
+      .container {
+         width: 90%;
          max-width: 1200px;
          margin: auto;
       }
 
-         .services h2,
-         .projects h2,
-         .contact h2 {
-            font-size: 3.2rem;
-            color: var(--blue);
-            margin-bottom: 3rem;
-            border-left: 6px solid var(--primary);
-            padding-left: 1rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-         }
-
-      /* Services container with sidebar */
-      .services-container {
-         display: flex;
-         gap: 3rem;
-         flex-wrap: wrap;
-      }
-
-      .dienst-list {
-         flex: 1 1 280px;
-         background: white;
-         padding: 2.5rem 2rem;
-         border-radius: 0.8rem;
-         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
-         max-height: 600px;
-         overflow-y: auto;
-         scroll-behavior: smooth;
-      }
-
-         .dienst-list h3 {
-            color: var(--primary);
-            margin-bottom: 2rem;
-            font-size: 2.2rem;
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-         }
-
-         .dienst-list ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-         }
-
-            .dienst-list ul li {
-               padding: 1rem 0;
-               border-bottom: 1px solid #eee;
-               font-size: 1.8rem;
-               cursor: pointer;
-               transition: color 0.3s ease;
-               font-weight: 600;
-            }
-
-               .dienst-list ul li:hover,
-               .dienst-list ul li.active {
-                  color: var(--primary);
-                  font-weight: 700;
-               }
-
-      .dienst-detail {
-         flex: 3 1 650px;
-         background: white;
-         padding: 3.5rem 3rem;
-         border-radius: 0.8rem;
-         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
-         font-size: 1.9rem;
-         line-height: 1.65;
-         color: var(--dark);
-         min-height: 600px;
+      .actie {
+         position: relative;
+         height: 400px;
+         color: white;
+         text-align: center;
          display: flex;
          flex-direction: column;
          justify-content: center;
-         transition: background 0.3s ease;
-         user-select: text;
+         overflow: hidden;
       }
 
-         .dienst-detail h3 {
-            color: var(--blue);
-            font-size: 2.8rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 0.03em;
-         }
-
-         .dienst-detail p {
-            margin-bottom: 1.3rem;
-         }
-
-      /* Projects grid styling */
-      .projects .grid {
-         display: grid;
-         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-         gap: 2.5rem;
-      }
-
-      .projects img {
+      .actie-bg {
+         position: absolute;
+         top: 0;
+         left: 0;
          width: 100%;
-         border-radius: 0.8rem;
-         transition: transform 0.3s, box-shadow 0.3s;
-         box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-         cursor: pointer;
+         height: 100%;
+         object-fit: cover;
+         z-index: 0;
+         filter: brightness(0.5);
       }
 
-         .projects img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-         }
-
-      .contact p {
-         font-size: 1.7rem;
-         margin: 1.5rem 0;
-         max-width: 700px;
-         line-height: 1.7;
+      .actie .container {
+         position: relative;
+         z-index: 1;
       }
 
-      footer {
-         background: var(--gray);
-         color: white;
+      .actie h2 {
+         font-size: 2.5rem;
+         margin-bottom: 10px;
+      }
+
+      .actie p {
+         font-size: 1.1rem;
+      }
+
+      .features {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: space-between;
+         gap: 20px;
+         padding: 60px 0;
+      }
+
+      .feature {
+         flex: 1 1 30%;
+         background: var(--bg-light);
+         border-radius: 12px;
+         padding: 30px;
          text-align: center;
-         padding: 3rem 1rem;
-         font-size: 1.4rem;
-         user-select: none;
+         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+         transition: transform 0.3s ease;
       }
 
-      .footer-nav {
-         margin-top: 1.5rem;
-         display: flex;
-         flex-wrap: wrap;
-         justify-content: center;
-         gap: 1.5rem;
-      }
+         .feature:hover {
+            transform: translateY(-5px);
+         }
 
-         .footer-nav a {
-            color: white;
-            text-decoration: none;
+         .feature i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+         }
+
+         .feature h3 {
             font-size: 1.4rem;
-            padding: 0.4rem 0.9rem;
-            border-radius: 0.3rem;
-            transition: background 0.3s ease, color 0.3s ease;
-            font-weight: 600;
-            user-select: text;
+            color: var(--secondary);
          }
 
-            .footer-nav a:hover,
-            .footer-nav a:focus {
-               background: var(--primary);
-               color: white;
-               outline: none;
-            }
-
-      .social__list {
-         list-style: none;
-         padding: 0;
-         margin-top: 2.5rem;
+      .info-section {
+         background: #e0f2f1;
+         padding: 60px 0;
          display: flex;
-         justify-content: center;
-         gap: 2rem;
          flex-wrap: wrap;
+         gap: 30px;
+         align-items: center;
+         justify-content: space-between;
       }
 
-         .social__list li a {
-            color: white;
-            font-size: 2.8rem;
-            transition: opacity 0.3s;
+      .info-box {
+         flex: 1 1 45%;
+         padding: 20px;
+      }
+
+         .info-box img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
          }
 
-            .social__list li a:hover,
-            .social__list li a:focus {
-               opacity: 0.6;
-               outline: none;
-            }
+         .info-box p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+         }
 
-      /* Responsive tweaks */
-      @media (max-width: 900px) {
-         .services-container {
+      .facts-section {
+         background: #fafafa;
+         padding: 60px 0;
+         text-align: center;
+      }
+
+      .facts-container {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+         gap: 40px;
+      }
+
+      .fact {
+         flex: 1 1 200px;
+         max-width: 250px;
+         background: white;
+         padding: 30px;
+         border-radius: 12px;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+         transition: transform 0.3s ease;
+      }
+
+         .fact:hover {
+            transform: scale(1.05);
+         }
+
+         .fact h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+         }
+
+         .fact p {
+            font-size: 1rem;
+            color: #555;
+         }
+
+      .timeline {
+         background: #e0f7fa;
+         padding: 60px 0;
+      }
+
+      .timeline-step {
+         margin: 20px auto;
+         max-width: 600px;
+         background: white;
+         border-left: 5px solid var(--primary);
+         padding: 20px;
+         border-radius: 8px;
+         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+      }
+
+         .timeline-step h4 {
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+            color: var(--secondary);
+         }
+
+         .timeline-step p {
+            font-size: 1rem;
+            color: #444;
+         }
+
+      @media (max-width: 768px) {
+         .features,
+         .info-section,
+         .facts-container {
             flex-direction: column;
+            align-items: center;
          }
 
-         .dienst-list,
-         .dienst-detail {
-            max-height: none;
-            flex: 1 1 100%;
-         }
-
-         .hero h2 {
-            font-size: 3.2rem;
-         }
-
-         .cta {
-            font-size: 1.8rem;
-            padding: 1rem 2.5rem;
+         .feature,
+         .info-box,
+         .fact {
+            width: 100%;
          }
       }
    </style>
 </head>
-
 <body>
-   <header id="main-header">
-      <div class="header-container">
-         <h1>Grondwerken BV</h1>
-         <nav aria-label="Hoofd navigatie">
-            <ul>
-               <li><a href="index.html">Home</a></li>
-               <li><a href="diensten.html">Diensten</a></li>
-               <li><a href="projecten.html">Projecten</a></li>
-               <li><a href="photos.html">Foto's</a></li>
-               <li><a href="contact.html">Contact</a></li>
-            </ul>
-         </nav>
-      </div>
-   </header>
 
-   <section class="hero" role="banner" aria-label="Introductie">
-      <div>
-         <h2>Uw betrouwbare partner in grondwerken en infrastructuur</h2>
-         <a href="#contact" class="cta" role="button">Contacteer ons</a>
-      </div>
-   </section>
+   <nav>
+      <div class="nav-left">Grondwerken BV</div>
+      <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+      <ul id="nav-menu">
+         <li><a href="index.html">Home</a></li>
+         <li><a href="diensten.html">Diensten</a></li>
+         <li><a href="projecten.html">Projecten</a></li>
+         <li><a href="photos.html">Foto's</a></li>
+         <li><a href="contact.html">Contact</a></li>
+      </ul>
+   </nav>
 
-   <section class="services" id="diensten">
-      <h2>Onze Diensten</h2>
-      <div class="services-container">
-         <aside class="dienst-list" aria-label="Lijst van diensten">
-            <h3>Diensten</h3>
-            <ul id="dienst-items" role="list">
-               <li tabindex="0" data-title="Kaasaien"
-                   data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-       Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-       Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-       Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-       Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-       Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-       Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-       Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-       ">Kaasaien</li>
-               <li tabindex="0" data-title="Grondwerken"
-                   data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-                   Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-                   Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-                   Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-                   Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-                   Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-                   Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-                   Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-                   ">Grondwerken</li>
-               <li tabindex="0" data-title="Rioleringswerken"
-                   data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  ">Rioleringswerken</li>
-               <li tabindex="0" data-title="Sleufwerken"
-                   data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  ">Sleufwerken</li>
-               <li tabindex="0" data-title="Opritten"
-                   data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  ">Opritten</li>
-               <li tabindex="0" data-title="Nutsleidingen"
-                   data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-">Nutsleidigen</li>
-               <li tabindex="0" data-title="Wegenbouw"
-                   data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-">Wegenbouw</li>
-               <li tabindex="0" data-title="Verhadingenn"
-                   data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-">Verhadingengen</li>
-               <li tabindex="0" data-title="Milieuvriendelijke Oplosingen"
-                   data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-">Milieuvriendelijke Oplosingengen</li>
-               <li tabindex="0" data-title="Groundsabilisatie"
-                   data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-">Grondsabilsatie</li>
-            </ul>
-         </aside>
-
-         <article class="dienst-detail" aria-live="polite" aria-atomic="true">
-            <h3>Meer informatie over onze diensten</h3>
-            <p>
-               Wij bieden een breed scala aan grondwerken en infrastructuurwerken aan, van kasseien leggen tot complexe
-               rioleringswerken. Onze ervaren teams zorgen voor kwaliteit, veiligheid en duurzaamheid in elk project.
-            </p>
-            <p>
-               Contacteer ons voor een vrijblijvende offerte of meer informatie over een specifieke dienst.
-            </p>
-         </article>
+   <section class="actie">
+      <img class="actie-bg" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80" alt="Grondwerken achtergrond" />
+      <div class="container">
+         <h2>Bekijk ons in actie</h2>
+         <p>Onze projecten spreken voor zich. Kwaliteit, snelheid en veiligheid gegarandeerd.</p>
       </div>
    </section>
 
-   <section class="projects" id="projecten">
-      <h2>Recente Projecten</h2>
-      <div class="grid" aria-label="Project foto overzicht">
-         <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Aanleg van nieuwe oprit met kasseien" />
-         <img src="https://images.unsplash.com/photo-1468071174046-657d9d351a40?auto=format&fit=crop&w=800&q=80" alt="Grondwerken met graafmachine in actie" />
-         <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Riolering leggen langs de weg" />
-         <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80" alt="Wegenbouw project in uitvoering" />
+   <section class="container features" data-aos="fade-up">
+      <div class="feature">
+         <i class="fas fa-road"></i>
+         <h3>Wegenbouw</h3>
+         <p>Jarenlange ervaring in wegenaanleg en onderhoud</p>
+      </div>
+      <div class="feature">
+         <i class="fas fa-water"></i>
+         <h3>Rioleringswerken</h3>
+         <p>Milieuvriendelijke en efficiënte oplossingen</p>
+      </div>
+      <div class="feature">
+         <i class="fas fa-tools"></i>
+         <h3>Professioneel Materieel</h3>
+         <p>Altijd modern en goed onderhouden machines</p>
       </div>
    </section>
 
-   <section class="contact" id="contact" aria-label="Contactinformatie">
-      <h2>Contacteer ons</h2>
-      <p>Heeft u een vraag of wilt u een offerte? Neem contact met ons op via onderstaande gegevens:</p>
-      <p><strong>Telefoon:</strong> +32 123 456 789</p>
-      <p><strong>Email:</strong> info@grondwerkenbv.be</p>
-      <p><strong>Adres:</strong> Industrieweg 12, 1000 Brussel</p>
+   <section class="info-section container" data-aos="fade-up">
+      <div class="info-box">
+         <h2 class="section-title">Over Ons Werk</h2>
+         <p>Bij Grondwerken BV geloven we in vakmanschap en precisie. Elk project wordt met zorg uitgevoerd, van kleine infrastructuurwerken tot grote wegenaanleg. Onze klanten vertrouwen op onze deskundigheid en stipte uitvoering.</p>
+      </div>
+      <div class="info-box">
+         <img src="https://images.unsplash.com/photo-1581091870621-2b1f88e84f82?auto=format&fit=crop&w=1200&q=80" alt="Grondwerken in actie">
+      </div>
+   </section>
+
+   <section class="facts-section" data-aos="fade-up">
+      <h2 class="section-title">Feiten & Cijfers</h2>
+      <div class="facts-container">
+         <div class="fact">
+            <h3>250+</h3>
+            <p>Succesvolle projecten</p>
+         </div>
+         <div class="fact">
+            <h3>20 jaar</h3>
+            <p>Ervaring in de sector</p>
+         </div>
+         <div class="fact">
+            <h3>98%</h3>
+            <p>Klanttevredenheid</p>
+         </div>
+      </div>
+   </section>
+
+   <section class="timeline" data-aos="fade-up">
+      <h2 class="section-title">Onze Aanpak</h2>
+      <div class="timeline-step">
+         <h4>1. Analyse & Offerte</h4>
+         <p>We starten met een grondige analyse van de opdracht en bezorgen een duidelijke offerte.</p>
+      </div>
+      <div class="timeline-step">
+         <h4>2. Voorbereiding & Planning</h4>
+         <p>Een gedetailleerde planning wordt opgesteld met oog op efficiëntie en veiligheid.</p>
+      </div>
+      <div class="timeline-step">
+         <h4>3. Uitvoering</h4>
+         <p>Met professioneel materieel en ervaren vaklui voeren we de werken uit.</p>
+      </div>
+      <div class="timeline-step">
+         <h4>4. Oplevering & Nazorg</h4>
+         <p>Na afronding zorgen we voor een nauwkeurige oplevering en eventuele opvolging.</p>
+      </div>
    </section>
 
    <footer>
-      &copy; 2025 Grondwerken BV. Alle rechten voorbehouden.
-      <nav class="footer-nav" aria-label="Footer navigatie">
-         <a href="index.html">Home</a>
-         <a href="diensten.html">Diensten</a>
-         <a href="projecten.html">Projecten</a>
-         <a href="photos.html">Foto's</a>
-         <a href="contact.html">Contact</a>
-      </nav>
-      <ul class="social__list" role="list" aria-label="Sociale media links">
-         <li>
-            <a href="https://www.facebook.com/grondwerkenbv" target="_blank" rel="noopener" aria-label="Facebook">
-               <i class="fa fa-facebook"></i>
-            </a>
-         </li>
-         <li>
-            <a href="https://twitter.com/grondwerkenbv" target="_blank" rel="noopener" aria-label="Twitter">
-               <i class="fa fa-twitter"></i>
-            </a>
-         </li>
-         <li>
-            <a href="https://www.instagram.com/grondwerkenbv" target="_blank" rel="noopener" aria-label="Instagram">
-               <i class="fa fa-instagram"></i>
-            </a>
-         </li>
-      </ul>
+      &copy; 2025 Grondwerken BV – Alle rechten voorbehouden.
    </footer>
 
+   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
    <script>
-      // Interactive Dienst List - show content on click or keyboard (Enter/Space)
-      const dienstItems = document.querySelectorAll('#dienst-items li');
-      const dienstDetail = document.querySelector('.dienst-detail');
-
-      function setActiveDienst(item) {
-         dienstItems.forEach(li => li.classList.remove('active'));
-         item.classList.add('active');
-
-         const title = item.getAttribute('data-title');
-         const content = item.getAttribute('data-content');
-
-         dienstDetail.innerHTML = `
-           <h3>${title}</h3>
-           <p>${content}</p>
-         `;
-      }
-
-      dienstItems.forEach(item => {
-         item.addEventListener('click', () => setActiveDienst(item));
-         item.addEventListener('keydown', e => {
-            if (e.key === 'Enter' || e.key === ' ') {
-               e.preventDefault();
-               setActiveDienst(item);
-            }
-         });
-      });
-
-      // Set initial active dienst content
-      setActiveDienst(document.querySelector('#dienst-items li.active'));
-
-      // Optional: Shrink header on scroll
-      window.addEventListener('scroll', () => {
-         const header = document.getElementById('main-header');
-         if (window.scrollY > 50) {
-            header.classList.add('shrink');
-         } else {
-            header.classList.remove('shrink');
-         }
+      AOS.init();
+      const menuToggle = document.getElementById('menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      menuToggle.addEventListener('click', () => {
+         navMenu.classList.toggle('active');
       });
    </script>
 </body>
-
 </html>
