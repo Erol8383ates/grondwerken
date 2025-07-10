@@ -267,6 +267,15 @@
          <li><a href="https://wa.me/32470810515" target="_blank"><span class="fa fa-whatsapp"></span></a></li>
       </ul>
    </footer>
+   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+   <script>
+      AOS.init();
+      const menuToggle = document.getElementById('menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      menuToggle.addEventListener('click', () => {
+         navMenu.classList.toggle('active');
+      });
+   </script>
 </body>
 
 </html>
