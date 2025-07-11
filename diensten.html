@@ -8,23 +8,31 @@
    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
    <style>
+
       * {
          box-sizing: border-box;
          margin: 0;
          padding: 0;
       }
 
+      html {
+         font-size: 72.5%;
+         scroll-behavior: smooth;
+      }
+
       body {
-         font-family: 'Rubik', sans-serif;
-         background: #ffffff;
-         color: #333;
+         margin: 0;
+         font-family: 'Titillium Web', sans-serif;
+         background: var(--light);
+         color: var(--dark);
          line-height: 1.6;
       }
 
+      /* HEADER */
       nav {
          background-color: #004d40;
          color: white;
-         padding: 0 20px;
+         padding: 0 30px;
          display: flex;
          justify-content: space-between;
          align-items: center;
@@ -36,8 +44,9 @@
 
          nav .nav-left {
             font-weight: 600;
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             letter-spacing: 1px;
+            color: var(--text-light);
          }
 
          nav ul {
@@ -45,22 +54,21 @@
             display: flex;
             gap: 25px;
          }
-
             nav ul li a {
                color: white;
                text-decoration: none;
                font-weight: 500;
-               font-size: 1rem;
+               font-size: 1.6rem;
                padding: 10px 0;
                border-bottom: 3px solid transparent;
                transition: 0.3s ease;
             }
-
                nav ul li a:hover,
                nav ul li a:focus {
                   color: #80cbc4;
                   border-bottom: 3px solid #80cbc4;
                }
+
 
       .menu-toggle {
          display: none;
@@ -80,7 +88,7 @@
             top: 60px;
             right: 0;
             flex-direction: column;
-            background-color: #004d40;
+            background: var(--gray);
             width: 220px;
             border-radius: 0 0 0 12px;
             box-shadow: -3px 5px 10px rgba(0, 0, 0, 0.1);
@@ -96,11 +104,20 @@
             }
       }
 
+      /* FOOTER */
+      footer {
+         background: var(--gray);
+         color: #ccc;
+         text-align: center;
+         padding: 25px 10px;
+         font-size: 0.95rem;
+      }
+
       h2.section-title {
          text-align: center;
          font-size: 2.2rem;
          margin: 50px 0 30px;
-         color: #004d40;
+         color: var(--secondary);
       }
 
       .container {
@@ -155,7 +172,7 @@
 
       .feature {
          flex: 1 1 30%;
-         background: #f4f4f4;
+         background: var(--bg-light);
          border-radius: 12px;
          padding: 30px;
          text-align: center;
@@ -169,13 +186,13 @@
 
          .feature i {
             font-size: 2.5rem;
-            color: #00796b;
+            color: var(--primary);
             margin-bottom: 15px;
          }
 
          .feature h3 {
             font-size: 1.4rem;
-            color: #004d40;
+            color: var(--secondary);
          }
 
       .info-section {
@@ -220,7 +237,7 @@
       .fact {
          flex: 1 1 200px;
          max-width: 250px;
-         background: #fff;
+         background: white;
          padding: 30px;
          border-radius: 12px;
          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -233,7 +250,7 @@
 
          .fact h3 {
             font-size: 2rem;
-            color: #00796b;
+            color: var(--primary);
             margin-bottom: 10px;
          }
 
@@ -250,8 +267,8 @@
       .timeline-step {
          margin: 20px auto;
          max-width: 600px;
-         background: #fff;
-         border-left: 5px solid #00796b;
+         background: white;
+         border-left: 5px solid var(--primary);
          padding: 20px;
          border-radius: 8px;
          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
@@ -260,21 +277,13 @@
          .timeline-step h4 {
             margin: 0 0 10px;
             font-size: 1.2rem;
-            color: #004d40;
+            color: var(--secondary);
          }
 
          .timeline-step p {
             font-size: 1rem;
             color: #444;
          }
-
-      footer {
-         background: #002d27;
-         color: #ccc;
-         text-align: center;
-         padding: 20px;
-         font-size: 0.9rem;
-      }
 
       @media (max-width: 768px) {
          .features,
@@ -313,6 +322,9 @@
          <p>Onze projecten spreken voor zich. Kwaliteit, snelheid en veiligheid gegarandeerd.</p>
       </div>
    </section>
+
+   <!-- All other sections below remain unchanged -->
+   <!-- features, info, facts, timeline ... -->
 
    <section class="container features" data-aos="fade-up">
       <div class="feature">
@@ -387,10 +399,8 @@
    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
    <script>
       AOS.init();
-
       const menuToggle = document.getElementById('menu-toggle');
       const navMenu = document.getElementById('nav-menu');
-
       menuToggle.addEventListener('click', () => {
          navMenu.classList.toggle('active');
       });
