@@ -7,6 +7,7 @@
    <title>Grondwerken & Infrastructuur | Grondwerken BV</title>
    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;600&display=swap" rel="stylesheet" />
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" />
+   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
    <style>
@@ -547,9 +548,9 @@ Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren
          const content = item.getAttribute('data-content');
 
          dienstDetail.innerHTML = `
-                 <h3>${title}</h3>
-                 <p>${content}</p>
-               `;
+                    <h3>${title}</h3>
+                    <p>${content}</p>
+                  `;
       }
 
       dienstItems.forEach(item => {
@@ -575,18 +576,11 @@ Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren
          }
       });
    </script>
+   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
    <script>
       AOS.init();
       const menuToggle = document.getElementById('menu-toggle');
       const navMenu = document.getElementById('nav-menu');
-      menuToggle.addEventListener('click', () => {
-         navMenu.classList.toggle('active');
-      });
-   </script>
-   <script>
-      const menuToggle = document.getElementById('menu-toggle');
-      const navMenu = document.getElementById('nav-menu');
-
       menuToggle.addEventListener('click', () => {
          navMenu.classList.toggle('active');
       });
