@@ -16,6 +16,7 @@
          --blue: #1e3a5f;
          --white: #ffffff;
          --light: #f8f9fa;
+         --overlay-bg: rgba(0, 0, 0, 0.8);
       }
 
       * {
@@ -43,14 +44,15 @@
          padding: 2.5rem 2rem;
          text-align: center;
          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-         position: relative; /* for absolute nav menu on mobile */
+         position: relative;
       }
 
-         header h1 {
-            font-size: 3.2rem;
-         }
+      header h1 {
+         font-size: 3.2rem;
+         font-weight: 600;
+         letter-spacing: 1.2px;
+      }
 
-      /* Hamburger button, hidden on desktop */
       #menu-toggle {
          display: none;
          position: absolute;
@@ -69,33 +71,32 @@
          margin-top: 1.5rem;
       }
 
-         nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            padding: 0;
-            transition: max-height 0.3s ease;
-         }
+      nav ul {
+         list-style: none;
+         display: flex;
+         justify-content: center;
+         flex-wrap: wrap;
+         gap: 2rem;
+         padding: 0;
+      }
 
-         nav a {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 1.6rem;
-            padding: 0.5rem 1.2rem;
-            border-radius: 0.3rem;
-            transition: background 0.3s ease;
-         }
+      nav a {
+         color: var(--white);
+         text-decoration: none;
+         font-size: 1.6rem;
+         padding: 0.5rem 1.2rem;
+         border-radius: 0.3rem;
+         transition: background 0.3s ease;
+      }
 
-            nav a:hover,
-            nav a.active {
-               background: var(--primary);
-            }
+      nav a:hover,
+      nav a.active {
+         background: var(--primary);
+      }
 
       main {
          max-width: 1200px;
-         margin: 4rem auto;
+         margin: 4rem auto 6rem;
          padding: 0 2rem;
       }
 
@@ -105,38 +106,121 @@
          margin-bottom: 3rem;
          border-left: 6px solid var(--primary);
          padding-left: 1rem;
+         font-weight: 600;
+         letter-spacing: 1px;
       }
 
-      .photos-grid {
+      /* Gallery Grid */
+      .gallery {
          display: grid;
          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-         gap: 2rem;
+         gap: 2.5rem;
       }
 
-      .photo-item {
+      .gallery-item {
          background: var(--white);
-         border-radius: 0.8rem;
-         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+         border-radius: 1rem;
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
          overflow: hidden;
+         cursor: pointer;
+         position: relative;
          transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
 
-         .photo-item:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-         }
+      .gallery-item:hover {
+         transform: translateY(-8px);
+         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      }
 
-         .photo-item img {
-            width: 100%;
-            display: block;
-            object-fit: cover;
-            aspect-ratio: 16/9;
-         }
+      .gallery-item img {
+         width: 100%;
+         display: block;
+         object-fit: cover;
+         aspect-ratio: 16 / 9;
+         transition: transform 0.4s ease;
+      }
 
-      .photo-caption {
-         font-size: 1.6rem;
-         padding: 1.2rem;
+      .gallery-item:hover img {
+         transform: scale(1.05);
+      }
+
+      .caption {
+         padding: 1.4rem 1.6rem;
+         font-size: 1.5rem;
          color: var(--dark);
+         font-weight: 600;
+         text-align: center;
+         background: #f0f0f0;
+         user-select: none;
+      }
+
+      /* Lightbox Overlay */
+      .lightbox {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100vw;
+         height: 100vh;
+         background: var(--overlay-bg);
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         opacity: 0;
+         pointer-events: none;
+         transition: opacity 0.4s ease;
+         z-index: 100;
+      }
+
+      .lightbox.active {
+         opacity: 1;
+         pointer-events: auto;
+      }
+
+      .lightbox-content {
+         position: relative;
+         max-width: 90vw;
+         max-height: 80vh;
+         border-radius: 1rem;
+         overflow: hidden;
+         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+         background: var(--white);
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+      }
+
+      .lightbox-content img {
+         max-width: 100%;
+         max-height: 70vh;
+         object-fit: contain;
+         display: block;
+      }
+
+      .lightbox-caption {
+         padding: 1rem 2rem;
+         font-size: 1.8rem;
+         color: var(--dark);
+         background: #f0f0f0;
+         width: 100%;
+         text-align: center;
+         font-weight: 600;
+      }
+
+      .lightbox-close {
+         position: absolute;
+         top: 0.8rem;
+         right: 1.2rem;
+         font-size: 3rem;
+         color: var(--primary);
+         cursor: pointer;
+         background: transparent;
+         border: none;
+         user-select: none;
+         transition: color 0.3s ease;
+      }
+
+      .lightbox-close:hover {
+         color: var(--blue);
       }
 
       footer {
@@ -144,32 +228,30 @@
          color: var(--white);
          text-align: center;
          padding: 2rem 1rem;
-         margin-top: 5rem;
+         margin-top: 2rem;
       }
 
       .social-icons {
          margin-top: 1rem;
       }
 
-         .social-icons a {
-            margin: 0 1rem;
-            color: var(--white);
-            font-size: 2rem;
-            transition: opacity 0.3s ease;
-         }
+      .social-icons a {
+         margin: 0 1rem;
+         color: var(--white);
+         font-size: 2rem;
+         transition: opacity 0.3s ease;
+      }
 
-            .social-icons a:hover {
-               opacity: 0.7;
-            }
+      .social-icons a:hover {
+         opacity: 0.7;
+      }
 
-      /* Mobile styles */
+      /* Responsive nav menu for mobile */
       @media (max-width: 800px) {
-         /* Show hamburger */
          #menu-toggle {
             display: block;
          }
 
-         /* Hide nav menu by default */
          nav ul {
             flex-direction: column;
             max-height: 0;
@@ -178,22 +260,22 @@
             border-radius: 0 0 0.8rem 0.8rem;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             margin-top: 0.8rem;
+            transition: max-height 0.3s ease;
          }
 
-            /* Show nav menu when toggled */
-            nav ul.expanded {
-               max-height: 500px; /* enough for menu */
-               padding: 1rem 0;
-            }
+         nav ul.expanded {
+            max-height: 500px;
+            padding: 1rem 0;
+         }
 
          nav li {
             margin-bottom: 1rem;
             text-align: center;
          }
 
-            nav li:last-child {
-               margin-bottom: 0;
-            }
+         nav li:last-child {
+            margin-bottom: 0;
+         }
 
          nav a {
             font-size: 1.8rem;
@@ -203,7 +285,6 @@
       }
    </style>
 </head>
-
 <body>
    <header>
       <h1>Grondwerken BV</h1>
@@ -220,52 +301,59 @@
    </header>
 
    <main>
-      <h2>Foto's van onze projecten</h2>
+      <h2>Onze foto's in detail</h2>
 
-      <section class="photos-grid">
-         <div class="photo-item">
-            <img src="https://images.unsplash.com/photo-1?auto=format&fit=crop&w=800&q=80" alt="Werk 1" />
-            <p class="photo-caption">Aanleg van fundering</p>
+      <section class="gallery" aria-label="Galerij met foto's van projecten">
+         <div class="gallery-item" tabindex="0" data-caption="Aanleg van fundering" data-src="https://images.unsplash.com/photo-1?auto=format&fit=crop&w=1200&q=90">
+            <img src="https://images.unsplash.com/photo-1?auto=format&fit=crop&w=800&q=80" alt="Aanleg van fundering" />
+            <p class="caption">Aanleg van fundering</p>
          </div>
 
-         <div class="photo-item">
-            <img src="https://images.unsplash.com/photo-2?auto=format&fit=crop&w=800&q=80" alt="Werk 2" />
-            <p class="photo-caption">Grondwerken bij nieuwbouw</p>
+         <div class="gallery-item" tabindex="0" data-caption="Grondwerken bij nieuwbouw" data-src="https://images.unsplash.com/photo-2?auto=format&fit=crop&w=1200&q=90">
+            <img src="https://images.unsplash.com/photo-2?auto=format&fit=crop&w=800&q=80" alt="Grondwerken bij nieuwbouw" />
+            <p class="caption">Grondwerken bij nieuwbouw</p>
          </div>
 
-         <div class="photo-item">
-            <img src="https://images.unsplash.com/photo-3?auto=format&fit=crop&w=800&q=80" alt="Werk 3" />
-            <p class="photo-caption">Sleufwerken en nutsleidingen</p>
+         <div class="gallery-item" tabindex="0" data-caption="Sleufwerken en nutsleidingen" data-src="https://images.unsplash.com/photo-3?auto=format&fit=crop&w=1200&q=90">
+            <img src="https://images.unsplash.com/photo-3?auto=format&fit=crop&w=800&q=80" alt="Sleufwerken en nutsleidingen" />
+            <p class="caption">Sleufwerken en nutsleidingen</p>
          </div>
 
-         <div class="photo-item">
-            <img src="https://images.unsplash.com/photo-4?auto=format&fit=crop&w=800&q=80" alt="Werk 4" />
-            <p class="photo-caption">Oprit in aanleg</p>
+         <div class="gallery-item" tabindex="0" data-caption="Oprit in aanleg" data-src="https://images.unsplash.com/photo-4?auto=format&fit=crop&w=1200&q=90">
+            <img src="https://images.unsplash.com/photo-4?auto=format&fit=crop&w=800&q=80" alt="Oprit in aanleg" />
+            <p class="caption">Oprit in aanleg</p>
          </div>
 
-         <div class="photo-item">
-            <img src="https://images.unsplash.com/photo-5?auto=format&fit=crop&w=800&q=80" alt="Werk 5" />
-            <p class="photo-caption">Werf met graafmachines</p>
+         <div class="gallery-item" tabindex="0" data-caption="Werf met graafmachines" data-src="https://images.unsplash.com/photo-5?auto=format&fit=crop&w=1200&q=90">
+            <img src="https://images.unsplash.com/photo-5?auto=format&fit=crop&w=800&q=80" alt="Werf met graafmachines" />
+            <p class="caption">Werf met graafmachines</p>
          </div>
 
-         <div class="photo-item">
-            <img src="https://images.unsplash.com/photo-6?auto=format&fit=crop&w=800&q=80" alt="Werk 6" />
-            <p class="photo-caption">Rioleringswerken in stad</p>
+         <div class="gallery-item" tabindex="0" data-caption="Rioleringswerken in stad" data-src="https://images.unsplash.com/photo-6?auto=format&fit=crop&w=1200&q=90">
+            <img src="https://images.unsplash.com/photo-6?auto=format&fit=crop&w=800&q=80" alt="Rioleringswerken in stad" />
+            <p class="caption">Rioleringswerken in stad</p>
          </div>
 
-         <div class="photo-item">
-            <img src="https://images.unsplash.com/photo-7?auto=format&fit=crop&w=800&q=80" alt="Werk 7" />
-            <p class="photo-caption">Verharding industrieterrein</p>
+         <div class="gallery-item" tabindex="0" data-caption="Verharding industrieterrein" data-src="https://images.unsplash.com/photo-7?auto=format&fit=crop&w=1200&q=90">
+            <img src="https://images.unsplash.com/photo-7?auto=format&fit=crop&w=800&q=80" alt="Verharding industrieterrein" />
+            <p class="caption">Verharding industrieterrein</p>
          </div>
 
-         <div class="photo-item">
-            <img src="https://images.unsplash.com/photo-8?auto=format&fit=crop&w=800&q=80" alt="Werk 8" />
-            <p class="photo-caption">Milieuvriendelijke afwatering</p>
+         <div class="gallery-item" tabindex="0" data-caption="Milieuvriendelijke afwatering" data-src="https://images.unsplash.com/photo-8?auto=format&fit=crop&w=1200&q=90">
+            <img src="https://images.unsplash.com/photo-8?auto=format&fit=crop&w=800&q=80" alt="Milieuvriendelijke afwatering" />
+            <p class="caption">Milieuvriendelijke afwatering</p>
          </div>
-
-         <!-- Voeg hier meer foto's toe door dit blok te kopiëren -->
       </section>
    </main>
+
+   <!-- Lightbox overlay -->
+   <div class="lightbox" role="dialog" aria-modal="true" aria-label="Foto bekijken" tabindex="-1">
+      <div class="lightbox-content">
+         <button class="lightbox-close" aria-label="Sluit foto">&times;</button>
+         <img src="" alt="" />
+         <p class="lightbox-caption"></p>
+      </div>
+   </div>
 
    <footer>
       <p>&copy; 2025 Grondwerken BV - Alle rechten voorbehouden</p>
@@ -277,14 +365,63 @@
    </footer>
 
    <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
+      // Mobile menu toggle
+      const menuToggle = document.getElementById('menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      menuToggle.addEventListener('click', () => {
+         const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+         menuToggle.setAttribute('aria-expanded', !expanded);
+         navMenu.classList.toggle('expanded');
+      });
 
-    menuToggle.addEventListener('click', () => {
-      const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-      menuToggle.setAttribute('aria-expanded', !expanded);
-      navMenu.classList.toggle('expanded');
-    });
+      // Lightbox functionality
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      const lightbox = document.querySelector('.lightbox');
+      const lightboxImage = lightbox.querySelector('img');
+      const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+      const lightboxClose = lightbox.querySelector('.lightbox-close');
+
+      function openLightbox(imgSrc, caption, alt) {
+         lightboxImage.src = imgSrc;
+         lightboxImage.alt = alt;
+         lightboxCaption.textContent = caption;
+         lightbox.classList.add('active');
+         lightbox.focus();
+      }
+
+      function closeLightbox() {
+         lightbox.classList.remove('active');
+         lightboxImage.src = '';
+         lightboxImage.alt = '';
+         lightboxCaption.textContent = '';
+      }
+
+      galleryItems.forEach(item => {
+         item.addEventListener('click', () => {
+            openLightbox(item.dataset.src, item.dataset.caption, item.querySelector('img').alt);
+         });
+         // Keyboard accessibility: open on Enter key
+         item.addEventListener('keydown', e => {
+            if(e.key === 'Enter' || e.key === ' ') {
+               e.preventDefault();
+               openLightbox(item.dataset.src, item.dataset.caption, item.querySelector('img').alt);
+            }
+         });
+      });
+
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (e) => {
+         if (e.target === lightbox) {
+            closeLightbox();
+         }
+      });
+
+      // Close lightbox on Escape key
+      document.addEventListener('keydown', e => {
+         if(e.key === 'Escape' && lightbox.classList.contains('active')) {
+            closeLightbox();
+         }
+      });
    </script>
 </body>
 </html>
