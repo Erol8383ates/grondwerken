@@ -7,7 +7,8 @@
    <title>Grondwerken & Infrastructuur | Grondwerken BV</title>
    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;600&display=swap" rel="stylesheet" />
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" />
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
    <style>
       :root {
          --gray: #2e2e2e;
@@ -213,8 +214,7 @@
       }
 
       .dienst-list {
-         flex
-            : 1 1 280px;
+         flex: 1 1 280px;
          background: white;
          padding: 2.5rem 2rem;
          border-radius: 0.8rem;
@@ -547,9 +547,9 @@ Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren
          const content = item.getAttribute('data-content');
 
          dienstDetail.innerHTML = `
-              <h3>${title}</h3>
-              <p>${content}</p>
-            `;
+                 <h3>${title}</h3>
+                 <p>${content}</p>
+               `;
       }
 
       dienstItems.forEach(item => {
@@ -583,6 +583,15 @@ Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren
          navMenu.classList.toggle('active');
       });
    </script>
+   <script>
+      const menuToggle = document.getElementById('menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+
+      menuToggle.addEventListener('click', () => {
+         navMenu.classList.toggle('active');
+      });
+   </script>
+
 </body>
 
 </html>
