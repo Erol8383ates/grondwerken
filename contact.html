@@ -6,7 +6,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <title>Contact | Grondwerken BV</title>
    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;600&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
    <style>
       :root {
          --primary: #f57c00;
@@ -36,17 +36,33 @@
       }
 
       header {
-         background: var(--blue);
+         background-color: #004d40;
          color: var(--white);
          padding: 3rem 2rem 2rem;
          text-align: center;
-         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+         position: relative; /* for hamburger button positioning */
       }
 
          header h1 {
             font-size: 3.2rem;
             margin-bottom: 1rem;
          }
+
+      /* Hamburger button, hidden on desktop */
+      #menu-toggle {
+         display: none;
+         position: absolute;
+         top: 3.5rem;
+         right: 2rem;
+         background: none;
+         border: none;
+         font-size: 3rem;
+         color: var(--white);
+         cursor: pointer;
+         user-select: none;
+         z-index: 10;
+      }
 
       nav {
          margin-top: 1rem;
@@ -89,7 +105,7 @@
             padding: 2rem;
             border-left: 5px solid var(--primary);
             border-radius: 0.5rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
             font-size: 1.6rem;
          }
 
@@ -102,7 +118,7 @@
          background: white;
          padding: 3rem;
          border-radius: 0.5rem;
-         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
          font-size: 1.6rem;
       }
 
@@ -116,7 +132,8 @@
          font-weight: 600;
       }
 
-      input, textarea {
+      input,
+      textarea {
          width: 100%;
          padding: 1rem;
          border: 1px solid #ccc;
@@ -151,7 +168,8 @@
          margin-bottom: 2rem;
       }
 
-         .form-extra input[type="tel"], .form-extra input[type="text"] {
+         .form-extra input[type="tel"],
+         .form-extra input[type="text"] {
             flex: 1 1 48%;
          }
 
@@ -179,13 +197,40 @@
          margin-top: 4rem;
          font-size: 1.4rem;
       }
+
+      /* Mobile styles */
+      @media (max-width: 800px) {
+         /* Show hamburger */
+         #menu-toggle {
+            display: block;
+         }
+
+         /* Hide nav menu by default on mobile */
+         nav {
+            margin-top: 0;
+         }
+
+            nav a {
+               display: block;
+               margin: 1rem 0;
+               font-size: 1.8rem;
+               font-weight: 600;
+            }
+
+            nav.collapsed {
+               display: none;
+            }
+      }
    </style>
 </head>
 
 <body>
    <header>
       <h1>Contacteer Grondwerken BV</h1>
-      <nav>
+
+      <button id="menu-toggle" aria-label="Menu openen" aria-expanded="false">&#9776;</button>
+
+      <nav id="nav-menu" class="collapsed">
          <a href="index.html">Home</a>
          <a href="diensten.html">Diensten</a>
          <a href="projecten.html">Projecten</a>
@@ -246,6 +291,36 @@
    <footer>
       <p>&copy; 2025 Grondwerken BV - Alle rechten voorbehouden</p>
    </footer>
+
+   <script>
+      const menuToggle = document.getElementById('menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+
+      // On page load, show menu on desktop and hide on mobile
+      function checkWindowSize() {
+         if (window.innerWidth > 800) {
+            navMenu.classList.remove('collapsed');
+            menuToggle.setAttribute('aria-expanded', 'true');
+         } else {
+            navMenu.classList.add('collapsed');
+            menuToggle.setAttribute('aria-expanded', 'false');
+         }
+      }
+
+      menuToggle.addEventListener('click', () => {
+         const isCollapsed = navMenu.classList.contains('collapsed');
+         if (isCollapsed) {
+            navMenu.classList.remove('collapsed');
+            menuToggle.setAttribute('aria-expanded', 'true');
+         } else {
+            navMenu.classList.add('collapsed');
+            menuToggle.setAttribute('aria-expanded', 'false');
+         }
+      });
+
+      window.addEventListener('resize', checkWindowSize);
+      window.addEventListener('load', checkWindowSize);
+   </script>
 </body>
 
 </html>
