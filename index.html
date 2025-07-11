@@ -10,13 +10,13 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
    <style>
       :root {
-         --primary: #f57c00;
-         --dark: #1c1c1c;
-         --gray: #6c757d;
-         --blue: #1e3a5f;
-         --white: #ffffff;
-         --light: #f8f9fa;
-         --shadow-light: rgba(0, 0, 0, 0.1);
+         --gray: #2e2e2e;
+         --accent: #f1c40f;
+         --text-light: #f0f0f0;
+         --text-dark: #333;
+         --bg-light: #f4f4f4;
+         --primary: #00796b;
+         --secondary: #004d40;
       }
 
       html {
@@ -32,62 +32,82 @@
          line-height: 1.6;
       }
 
-      header {
-         background: var(--blue);
-         color: var(--white);
-         padding: 2rem 1.5rem;
-         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-         position: sticky;
-         top: 0;
-         z-index: 1000;
-         transition: padding 0.3s ease;
-      }
-
-         header.shrink {
-            padding: 1rem 1.5rem;
-            box-shadow: 0 6px 12px var(--shadow-light);
-         }
-
-      .header-container {
-         max-width: 1200px;
-         margin: auto;
+      /* HEADER */
+      nav {
+         background: var(--gray);
+         color: var(--text-light);
+         padding: 0 30px;
          display: flex;
          justify-content: space-between;
          align-items: center;
-         flex-wrap: wrap;
+         height: 70px;
+         position: sticky;
+         top: 0;
+         z-index: 1000;
       }
 
-         .header-container h1 {
-            font-size: 3rem;
+         nav .nav-left {
             font-weight: 600;
-            letter-spacing: 2px;
-            user-select: none;
+            font-size: 1.6rem;
+            letter-spacing: 1px;
+            color: var(--text-light);
          }
 
-      nav ul {
-         display: flex;
-         list-style: none;
-         gap: 2rem;
-         padding: 0;
-         margin: 0;
-      }
-
-      nav a {
-         text-decoration: none;
-         color: var(--white);
-         font-size: 1.6rem;
-         padding: 0.5rem 1rem;
-         border-radius: 0.3rem;
-         transition: background 0.3s ease, transform 0.2s ease;
-         font-weight: 600;
-      }
-
-         nav a:hover,
-         nav a:focus {
-            background: var(--primary);
-            outline: none;
-            transform: scale(1.05);
+         nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
          }
+
+            nav ul li a {
+               color: var(--text-light);
+               text-decoration: none;
+               font-weight: 500;
+               font-size: 1rem;
+               padding: 10px 0;
+               border-bottom: 2px solid transparent;
+               transition: all 0.3s ease;
+            }
+
+               nav ul li a:hover,
+               nav ul li a:focus {
+                  color: var(--accent);
+                  border-bottom: 2px solid var(--accent);
+               }
+
+      .menu-toggle {
+         display: none;
+         font-size: 1.8rem;
+         cursor: pointer;
+         color: var(--text-light);
+      }
+
+      @media (max-width: 768px) {
+         .menu-toggle {
+            display: block;
+         }
+
+         nav ul {
+            display: none;
+            position: absolute;
+            top: 70px;
+            right: 0;
+            flex-direction: column;
+            background: var(--gray);
+            width: 220px;
+            border-radius: 0 0 0 12px;
+            box-shadow: -3px 5px 10px rgba(0, 0, 0, 0.1);
+         }
+
+            nav ul.active {
+               display: flex;
+            }
+
+            nav ul li {
+               text-align: right;
+               padding: 12px 20px;
+            }
+      }
 
       /* Hero section */
       .hero {
@@ -193,7 +213,8 @@
       }
 
       .dienst-list {
-         flex: 1 1 280px;
+         flex
+            : 1 1 280px;
          background: white;
          padding: 2.5rem 2rem;
          border-radius: 0.8rem;
@@ -372,20 +393,17 @@
 </head>
 
 <body>
-   <header id="main-header">
-      <div class="header-container">
-         <h1>Grondwerken BV</h1>
-         <nav aria-label="Hoofd navigatie">
-            <ul>
-               <li><a href="index.html">Home</a></li>
-               <li><a href="diensten.html">Diensten</a></li>
-               <li><a href="projecten.html">Projecten</a></li>
-               <li><a href="photos.html">Foto's</a></li>
-               <li><a href="contact.html">Contact</a></li>
-            </ul>
-         </nav>
-      </div>
-   </header>
+   <nav>
+      <div class="nav-left">Grondwerken BV</div>
+      <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+      <ul id="nav-menu">
+         <li><a href="index.html">Home</a></li>
+         <li><a href="diensten.html">Diensten</a></li>
+         <li><a href="projecten.html">Projecten</a></li>
+         <li><a href="photos.html">Foto's</a></li>
+         <li><a href="contact.html">Contact</a></li>
+      </ul>
+   </nav>
 
    <section class="hero" role="banner" aria-label="Introductie">
       <div>
@@ -403,102 +421,56 @@
                <li tabindex="0" data-title="Kaasaien"
                    data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
        Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-       Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-       Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-       Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-       Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-       Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-       Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+ egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
        ">Kaasaien</li>
                <li tabindex="0" data-title="Grondwerken"
                    data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
                    Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-                   Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-                   Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-                   Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-                   Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-                   Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-                   Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+            egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
                    ">Grondwerken</li>
                <li tabindex="0" data-title="Rioleringswerken"
                    data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
   Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+   egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
   ">Rioleringswerken</li>
                <li tabindex="0" data-title="Sleufwerken"
                    data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
   Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
   Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
   ">Sleufwerken</li>
                <li tabindex="0" data-title="Opritten"
                    data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
   Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+voorbereidingen voor funderingen met moderne machines en technieken
   Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
   ">Opritten</li>
                <li tabindex="0" data-title="Nutsleidingen"
                    data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
 Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+nderingen met moderne machines en technieken
 ">Nutsleidigen</li>
                <li tabindex="0" data-title="Wegenbouw"
                    data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
 Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+voorbereidingen voor funderingen met moderne machines en technieken
 Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
 ">Wegenbouw</li>
                <li tabindex="0" data-title="Verhadingenn"
                    data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
 Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+voor funderingen met moderne machines en technieken
 ">Verhadingengen</li>
                <li tabindex="0" data-title="Milieuvriendelijke Oplosingen"
                    data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
 Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
 ">Milieuvriendelijke Oplosingengen</li>
                <li tabindex="0" data-title="Groundsabilitatie"
                    data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
 Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
 Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
-Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
 ">Grondsabilsatie</li>
             </ul>
          </aside>
@@ -575,9 +547,9 @@ Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren
          const content = item.getAttribute('data-content');
 
          dienstDetail.innerHTML = `
-           <h3>${title}</h3>
-           <p>${content}</p>
-         `;
+              <h3>${title}</h3>
+              <p>${content}</p>
+            `;
       }
 
       dienstItems.forEach(item => {
@@ -601,6 +573,14 @@ Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren
          } else {
             header.classList.remove('shrink');
          }
+      });
+   </script>
+   <script>
+      AOS.init();
+      const menuToggle = document.getElementById('menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      menuToggle.addEventListener('click', () => {
+         navMenu.classList.toggle('active');
       });
    </script>
 </body>
