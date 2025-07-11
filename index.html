@@ -7,10 +7,8 @@
    <title>Grondwerken & Infrastructuur | Grondwerken BV</title>
    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;600&display=swap" rel="stylesheet" />
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" />
-   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-
+   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
    <style>
       :root {
          --gray: #2e2e2e;
@@ -20,15 +18,26 @@
          --bg-light: #f4f4f4;
          --primary: #00796b;
          --secondary: #004d40;
+         --light: #ffffff; /* add this */
+         --dark: #333333; /* add this */
+         background-color: #004d40;
+         --gray: #004d40;
       }
 
-    
+
+      html {
+         font-size: 72.5%;
+         scroll-behavior: smooth;
+      }
 
       body {
-         font-family: 'Rubik', sans-serif;
-   
+         margin: 0;
+         font-family: 'Titillium Web', sans-serif;
+         background: var(--light);
+         color: var(--dark);
+         line-height: 1.6;
       }
-   
+
       /* HEADER */
       nav {
          background: var(--gray);
@@ -60,7 +69,7 @@
                color: var(--text-light);
                text-decoration: none;
                font-weight: 500;
-               font-size: 1rem;
+               font-size: 1.6rem;
                padding: 10px 0;
                border-bottom: 2px solid transparent;
                transition: all 0.3s ease;
@@ -79,8 +88,11 @@
          color: var(--text-light);
       }
 
-      @media (max-width: 768px) {
-         .menu-toggle {
+      @media (max-width: 680px) {
+         nav {
+            padding: 0 15px;
+         }
+          .menu-toggle {
             display: block;
          }
 
@@ -151,7 +163,7 @@
       }
 
       .hero h2 {
-         font-size: 4.8rem;
+         font-size: 2.4rem;
          margin-bottom: 2rem;
          font-weight: 700;
          letter-spacing: 1px;
@@ -159,7 +171,7 @@
       }
 
       .cta {
-         font-size: 2.2rem;
+         font-size: 1.6rem;
          background: var(--primary);
          padding: 1rem 3.5rem;
          border-radius: 0.6rem;
@@ -180,7 +192,7 @@
          }
 
       section {
-         padding: 6rem 2rem;
+         padding: 4rem 1.5rem;
       }
 
       .services,
@@ -243,7 +255,9 @@
                cursor: pointer;
                transition: color 0.3s ease;
                font-weight: 600;
+               font-size: 1.6rem;
             }
+  
 
                .dienst-list ul li:hover,
                .dienst-list ul li.active {
@@ -254,10 +268,10 @@
       .dienst-detail {
          flex: 3 1 650px;
          background: white;
-         padding: 3.5rem 3rem;
+         padding: 2.5rem 2rem;
          border-radius: 0.8rem;
          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
-         font-size: 1.9rem;
+         font-size: 1.7rem;
          line-height: 1.65;
          color: var(--dark);
          min-height: 600px;
@@ -514,20 +528,21 @@ Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren
       <ul class="social__list" role="list" aria-label="Sociale media links">
          <li>
             <a href="https://www.facebook.com/grondwerkenbv" target="_blank" rel="noopener" aria-label="Facebook">
-               <i class="fa fa-facebook"></i>
+               <i class="fab fa-facebook-f"></i>
             </a>
          </li>
          <li>
             <a href="https://twitter.com/grondwerkenbv" target="_blank" rel="noopener" aria-label="Twitter">
-               <i class="fa fa-twitter"></i>
+               <i class="fab fa-twitter"></i>
             </a>
          </li>
          <li>
             <a href="https://www.instagram.com/grondwerkenbv" target="_blank" rel="noopener" aria-label="Instagram">
-               <i class="fa fa-instagram"></i>
+               <i class="fab fa-instagram"></i>
             </a>
          </li>
       </ul>
+
    </footer>
 
    <script>
@@ -576,12 +591,8 @@ Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren
       AOS.init();
       const menuToggle = document.getElementById('menu-toggle');
       const navMenu = document.getElementById('nav-menu');
-     menuToggle.addEventListener('click', () => {
-  if (navMenu.style.display === 'flex') {
-    navMenu.style.display = 'none';
-  } else {
-    navMenu.style.display = 'flex';
-  }
+      menuToggle.addEventListener('click', () => {
+         navMenu.classList.toggle('active');
       });
    </script>
 
