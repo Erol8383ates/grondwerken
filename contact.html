@@ -227,9 +227,7 @@
 <body>
    <header>
       <h1>Contacteer Grondwerken BV</h1>
-
       <button id="menu-toggle" aria-label="Menu openen" aria-expanded="false">&#9776;</button>
-
       <nav id="nav-menu" class="collapsed">
          <a href="index.html">Home</a>
          <a href="diensten.html">Diensten</a>
@@ -256,38 +254,38 @@
          </div>
       </div>
 
-     <h2>Stuur ons een bericht</h2>
-<form action="https://formsubmit.co/erolates33@hotmail.com" method="POST">
-   <!-- Hidden inputs for configuration -->
-   <input type="hidden" name="_captcha" value="false">
-   <input type="hidden" name="_next" value="https://AllProWorks BV/bedankt.html">
+      <h2>Stuur ons een bericht</h2>
+      <form action="https://formsubmit.co/erolates33@hotmail.com" method="POST">
+         <input type="hidden" name="_captcha" value="false">
+         <input type="hidden" name="_next" value="https://AllProWork.be/bedankt.html">
 
-   <div class="form-extra">
-      <input type="text" id="naam" name="naam" placeholder="Uw naam" required>
-      <input type="tel" id="telefoon" name="telefoon" placeholder="Uw telefoonnummer">
-   </div>
+         <div class="form-extra">
+            <input type="text" id="naam" name="naam" placeholder="Uw naam" required>
+            <input type="tel" id="telefoon" name="telefoon" placeholder="Uw telefoonnummer">
+         </div>
 
-   <div class="form-group">
-      <label for="email">Emailadres</label>
-      <input type="email" id="email" name="email" required>
-   </div>
+         <div class="form-group">
+            <label for="email">Emailadres</label>
+            <input type="email" id="email" name="email" required>
+         </div>
 
-   <div class="form-group">
-      <label for="onderwerp">Onderwerp</label>
-      <input type="text" id="onderwerp" name="onderwerp">
-   </div>
+         <div class="form-group">
+            <label for="onderwerp">Onderwerp</label>
+            <input type="text" id="onderwerp" name="onderwerp">
+         </div>
 
-   <div class="form-group">
-      <label for="bericht">Bericht</label>
-      <textarea id="bericht" name="bericht" required></textarea>
-   </div>
+         <div class="form-group">
+            <label for="bericht">Bericht</label>
+            <textarea id="bericht" name="bericht" required></textarea>
+         </div>
 
-   <button type="submit">Verzenden</button>
-</form>
+         <button type="submit">Verzenden</button>
+      </form>
+
       <div class="social-icons">
-         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-         <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+         <a href="#"><i class="fab fa-facebook-f"></i></a>
+         <a href="#"><i class="fab fa-instagram"></i></a>
+         <a href="#"><i class="fab fa-linkedin-in"></i></a>
       </div>
    </div>
 
@@ -299,7 +297,6 @@
       const menuToggle = document.getElementById('menu-toggle');
       const navMenu = document.getElementById('nav-menu');
 
-      // On page load, show menu on desktop and hide on mobile
       function checkWindowSize() {
          if (window.innerWidth > 800) {
             navMenu.classList.remove('collapsed');
@@ -312,18 +309,12 @@
 
       menuToggle.addEventListener('click', () => {
          const isCollapsed = navMenu.classList.contains('collapsed');
-         if (isCollapsed) {
-            navMenu.classList.remove('collapsed');
-            menuToggle.setAttribute('aria-expanded', 'true');
-         } else {
-            navMenu.classList.add('collapsed');
-            menuToggle.setAttribute('aria-expanded', 'false');
-         }
+         navMenu.classList.toggle('collapsed');
+         menuToggle.setAttribute('aria-expanded', !isCollapsed);
       });
 
       window.addEventListener('resize', checkWindowSize);
       window.addEventListener('load', checkWindowSize);
    </script>
 </body>
-
 </html>
