@@ -563,7 +563,7 @@ Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren
             <p>${content}</p>
          `;
 
-         // ✅ Scroll to dienst-detail on small screens
+         // ✅ Scroll only on interaction
          if (window.innerWidth <= 768) {
             dienstDetail.scrollIntoView({ behavior: "smooth", block: "start" });
          }
@@ -579,20 +579,31 @@ Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren
          });
       });
 
-      // Set default content
-      setActiveDienst(document.querySelector('#dienst-items li.active') || dienstItems[0]);
-   </script>
+      // ✅ Set default content without scrolling on load
+      const defaultItem = document.querySelector('#dienst-items li.active') || dienstItems[0];
+      dienstItems.forEach(li => li.classList.remove('active'));
+      defaultItem.classList.add('active');
 
+      const title = defaultItem.getAttribute('data-title');
+      const content = defaultItem.getAttribute('data-content');
+      dienstDetail.innerHTML = `
+         <h3>${title}</h3>
+         <p>${content}</p>
+      `;
+   </script>
 
    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
    <script>
       AOS.init();
+
       const menuToggle = document.getElementById('menu-toggle');
       const navMenu = document.getElementById('nav-menu');
+
       menuToggle.addEventListener('click', () => {
          navMenu.classList.toggle('active');
       });
    </script>
+
 
 
 
