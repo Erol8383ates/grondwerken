@@ -298,8 +298,17 @@
       .projects .grid {
          display: grid;
          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-         gap: 2.5rem;
+         gap: 2.0rem;
       }
+         .projects .grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 0.8rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+         }
 
       .projects img {
          width: 100%;
@@ -313,6 +322,10 @@
             transform: scale(1.05);
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
          }
+      .projects .grid img:hover {
+         transform: scale(1.05);
+         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      }
 
       .contact p {
          font-size: 1.7rem;
@@ -378,6 +391,31 @@
                outline: none;
             }
 
+      .lightbox {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100vw;
+         height: 100vh;
+         background: rgba(0, 0, 0, 0.8);
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         z-index: 10000;
+         display: none;
+      }
+
+         .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+         }
+
+         .lightbox.active {
+            display: flex;
+         }
+
       /* Responsive tweaks */
       @media (max-width: 900px) {
          .services-container {
@@ -404,7 +442,7 @@
 
 <body>
    <nav>
-      <div class="nav-left">AllProWorks BV</div>
+      <div class="nav-left">Grondwerken BV</div>
       <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
       <ul id="nav-menu">
          <li><a href="index.html">Home</a></li>
@@ -433,250 +471,67 @@
 
 Onze werkwijze start bij de onderbouw. We zorgen voor een uitgekiende opbouw van lagen die zorgen voor stabiliteit en een perfecte afwatering. Dit voorkomt verzakkingen en waterophopingen, wat bijdraagt aan een lange levensduur. Daarna worden de kasseien handmatig gelegd, met oog voor symmetrie en harmonie met de omgeving. Elk project is maatwerk: van landelijke oprijlanen tot stijlvolle stadstuinen en publieke pleinen.
 
-<ul>💡 Voordelen van onze kasseiwerken:
+💡 Voordelen van onze kasseiwerken:
 
-  <li>  Unieke, authentieke uitstraling – geen enkele kassei is exact hetzelfde</li>
+    Unieke, authentieke uitstraling – geen enkele kassei is exact hetzelfde
 
-<li>    Onverwoestbaar – bestand tegen zwaar verkeer en intensief gebruik</li>
+    Onverwoestbaar – bestand tegen zwaar verkeer en intensief gebruik
 
-  <li>  Minimaal onderhoud – geen mosvorming of slijtage zoals bij beton</li>
+    Minimaal onderhoud – geen mosvorming of slijtage zoals bij beton
 
- <li>   Milieuvriendelijk – natuurlijke materialen met lange levensduur</li>
+    Milieuvriendelijk – natuurlijke materialen met lange levensduur
 
- <li>   Esthetisch flexibel – past bij zowel klassieke als moderne architectuur</li>
-                  </ul>
-👉 Kiezen voor kasseien is kiezen voor een investering in schoonheid en kwaliteit voor de lange termijn. Wij begeleiden je met advies over types, patronen en combinaties.
-       ">Kaasaien</li>
+    Esthetisch flexibel – past bij zowel klassieke als moderne architectuur
+
+👉 Kiezen voor kasseien is kiezen voor een investering in schoonheid en kwaliteit voor de lange termijn. Wij begeleiden je met advies over types, patronen en combinaties ">Kaasaien</li>
                <li tabindex="0" data-title="Grondwerken"
-                   data-content="Een succesvol bouwproject begint bij goed uitgevoerde grondwerken. Grondwerken omvatten alle voorbereidende werkzaamheden die nodig zijn om een terrein bouwrijp te maken: van afgravingen tot ophogingen, van nivelleringen tot het aanbrengen van funderingen. Het lijkt eenvoudig, maar vergis je niet: grondwerken zijn technisch veeleisend en bepalen de stabiliteit en levensduur van alles wat erop volgt.
-
-Bij Grondwerken BV brengen we precisie en efficiëntie samen. We starten met een gedetailleerde analyse van de bodemgesteldheid, hoogteverschillen en waterhuishouding. Op basis daarvan maken we een werfplan dat rekening houdt met de eindbestemming van het terrein — of dat nu een woning, tuin, parking of industriezone is.
-
-<ul>🛠 Onze grondwerken omvatten onder meer:
-
-   <li> Volledige terreinopkuis en verwijdering van obstakels</li>
-
-  <li>  Afgravingen tot op specifieke dieptes volgens plan</li>
-
- <li>   Ophoging met gecertificeerd materiaal</li>
-
-  <li>  Egalisatie en nivellering met laserapparatuur</li>
-
-  <li>  Grondverbetering met kalk of steenpuin indien nodig</li>
-
-   <li> Tijdelijke wegen of verstevigingen voor werfverkeer</li>
-                  </ul>
-🌍 Wij voeren onze werken uit met respect voor de omgeving, het grondwaterpeil en naburige infrastructuur. Door ons eigen machinepark kunnen we snel én flexibel schakelen, zonder afhankelijkheid van derden.
+                   data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+                   Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+            egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
                    ">Grondwerken</li>
                <li tabindex="0" data-title="Rioleringswerken"
-                   data-content="Een degelijk rioleringsstelsel is essentieel voor een veilige, hygiënische en duurzame leefomgeving. Problemen zoals geurhinder, vochtproblemen, schimmelvorming of zelfs funderingsschade ontstaan vaak door gebrekkige riolering. Daarom zetten wij bij Grondwerken BV vol in op rioleringswerken van de hoogste kwaliteit.
-
-Onze aanpak is totaal en begint bij de studie van het terrein en de waterhuishouding. We plannen alles: waar moet vuil water heen? Hoe wordt regenwater afgevoerd? Wat zijn de wettelijke verplichtingen in jouw gemeente? We voorzien aansluitingen op het openbaar rioleringsnet, maar denken ook aan buffersystemen voor regenwater en infiltratieoplossingen.
-
-<ul>🧩 Wat we aanbieden:
-
-  <li>  Aanleg van gescheiden en gemengde rioleringssystemen</li>
-
-  <li>  Graven en plaatsen van buizen in verschillende diameters</li>
-
-    <li>Aansluitingen op gemeentelijke netten met alle vereiste attesten</li>
-
-   <li> Installatie van septische putten, vetafscheiders, infiltratiekratten</li>
-
-  <li>  Herstelling en renovatie van bestaande systemen</li>
-</ul>
-📄 We werken volgens alle Vlaamse normen en zorgen voor een technische dossieropvolging inclusief keuring. Jij hoeft je nergens zorgen om te maken.
+                   data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+   egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
   ">Rioleringswerken</li>
                <li tabindex="0" data-title="Sleufwerken"
-                   data-content="Sleufwerken zijn een essentiële stap in elk project waar ondergrondse infrastructuur wordt voorzien. Of het nu gaat om elektriciteit, water, gas of telecom, een correcte sleuf is cruciaal voor een veilige, duurzame installatie. Verkeerd uitgevoerde sleuven kunnen leiden tot verzakkingen, breuken, storingen of zelfs gevaarlijke situaties.
-
-Bij Grondwerken BV voeren we sleufwerken uit met precisie, vakmanschap en moderne apparatuur. We houden rekening met alle technische voorschriften zoals diepte, breedte, afstand tot andere leidingen, beschermende lagen en signalisatie.
-
-<ul>🚜 Waarom kiezen voor onze sleufwerken:
-
-  <li>  Dieptemeting en planvoorbereiding met digitale technieken</li>
-
-   <li> Versteviging van sleufwanden bij risico op instorting</li>
-
-   <li> Gebruik van correcte granulaten en terugvultechnieken</li>
-
-   <li> Documentatie en fotoregistratie van ondergrondse trajecten</li>
-
-   <li> Nazorg: herstelling van bestrating of groenzones</li>
-</ul>
-Of het nu gaat om een nieuwbouwwoning of een industriële installatie, wij zorgen voor feilloze uitvoering van A tot Z.
+                   data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
   ">Sleufwerken</li>
                <li tabindex="0" data-title="Opritten"
-                   data-content="Een oprit is meer dan slechts een doorgang naar je woning of bedrijf. Het is het eerste contactpunt met je eigendom en bepaalt in grote mate de eerste indruk. Daarom combineren wij bij Grondwerken BV functionaliteit, duurzaamheid en esthetiek om opritten te realiseren die niet alleen mooi zijn, maar ook tientallen jaren meegaan.
-
-Onze aanpak begint met een analyse van de gebruiksintensiteit: wordt de oprit dagelijks gebruikt door voertuigen, is er sprake van zware belasting, of is het eerder een sierelement in je tuin? We stemmen de fundering, het materiaal en de hellingsgraad hier volledig op af.
-
-<ul>🏗 Onze totaalservice voor opritten omvat:
-
-  <li>  Grondwerken en fundering met gestabiliseerd zand of steenslag</li>
-
-  <li>  Afwatering via lijngoten, hellingcorrectie en infiltratieoplossingen</li>
-
-  <li>  Keuze uit materialen zoals klinkers, natuursteen, betonplaten, grind, dolomiet of waterdoorlatende bestrating</li>
-
-  <li>  Professionele afwerking met boordstenen, verlichting, groenstroken of grindbakken</li>
-
-  <li>  Optioneel: combinatie met terrassen of tuinpaden in dezelfde stijl</li>
-                  </ul>
-🎯 Of je nu kiest voor een moderne, strakke look of eerder een landelijke uitstraling, wij zorgen voor een op maat gemaakte oplossing die perfect aansluit bij je gebouw en omgeving.
-                  ">Opritten</li>
+                   data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+voorbereidingen voor funderingen met moderne machines en technieken
+  Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+  ">Opritten</li>
                <li tabindex="0" data-title="Nutsleidingen"
-                   data-content="Zonder correcte nutsleidingen geen moderne woning of bedrijf. Water, elektriciteit, gas, internet en riolering moeten op een veilige en efficiënte manier op jouw terrein worden aangebracht. Dit vraagt om precisie, coördinatie met externe netbeheerders en kennis van de geldende normen.
-
-Bij Grondwerken BV verzorgen wij het volledige traject van aanvraag tot uitvoering. We graven de noodzakelijke sleuven, plaatsen de nodige beschermbuizen, leggen de leidingen volgens specificaties en zorgen voor de vereiste attesten. We zijn gewend te werken volgens de normen van Fluvius, Proximus, Telenet, De Watergroep en andere nutsmaatschappijen.
-
-<ul>🔌 Wat we voorzien in ons nutsleidingenpakket:
-
-  <li>  Vooronderzoek van bestaande leidingen (KLIC-plannen / KLIP Vlaanderen)</li>
-
-  <li>  Veilige graafwerken met signalisatie en afschermingen</li>
-
-  <li>  Aanleg van wachtbuizen en mantelbuizen voor toekomstige uitbreiding</li>
-
-  <li>  Aansluitingen volgens technische eisen van de netbeheerders</li>
-
-  <li>  Coördinatie met inspectiediensten en opmaak van as-built plannen</li>
-                  </ul>
-📅 Dankzij onze efficiënte planning en goede contacten met nutsbedrijven, vermijd jij vertragingen en misverstanden tijdens je bouwproces.
+                   data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+nderingen met moderne machines en technieken
 ">Nutsleidigen</li>
                <li tabindex="0" data-title="Wegenbouw"
-                   data-content="Wegenbouw is een discipline op zich. Het vraagt om een grondige voorbereiding, kennis van materialen, inzicht in belasting door verkeer en een perfecte uitvoering. Of het nu gaat om een private toegangsweg, een parking voor vrachtwagens of een publieke weg – bij Grondwerken BV zorgen we voor wegen die functioneel, veilig en duurzaam zijn.
-
-Onze expertise strekt zich uit van onderbouw tot belijning. We denken mee over het type verharding, de drainage, de verkeersgeleiding en de esthetische integratie in de omgeving.
-
-<ul>🚧 Onze wegenbouwprojecten omvatten:</li>
-
-  <li>  Volledige opbraak en herprofilering van bestaande wegen</li>
-
-  <li>  Fundering met gebroken puin of cementgestabiliseerde lagen</li>
-
-  <li>  Aanleg met beton, asfalt, steenslag of waterdoorlatende materialen</li>
-
-  <li>  Integratie van verkeersdrempels, snelheidsremmers en goten</li>
-
-  <li>  Signalisatie, belijning en afwerking volgens AWV-normen</li>
-                  </ul>
-🛠 Of het nu om een fietspad of een industrieel vrachtwagenparkeerterrein gaat: wij leveren projecten op waar je decennialang op kunt rekenen.
+                   data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+voorbereidingen voor funderingen met moderne machines en technieken
+Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
 ">Wegenbouw</li>
                <li tabindex="0" data-title="Verhadingenn"
-                   data-content="Duurzaam comfort voor elk terrein
-
-Verhardingen zijn onmisbaar voor het functioneel gebruik van je buitenruimte. Ze zorgen voor toegankelijkheid, veiligheid, netheid en een professionele uitstraling. Bij Grondwerken BV behandelen we verharding als een geïntegreerd onderdeel van je terrein – niet alleen als een functioneel vlak, maar als een esthetisch element dat naadloos past bij de omgeving.
-
-We begeleiden je van A tot Z: van materiaalkeuze en fundering tot afwatering en afwerking. Dankzij onze ervaring kunnen we het perfecte evenwicht vinden tussen vorm, functie en duurzaamheid. Elk project vraagt een andere aanpak: een particulier tuinpad is niet hetzelfde als een industriële loszone of een parking voor zwaar vervoer.
-
-<ul>🔹 Wat wij aanbieden:
-
-  <li>  Sierbestrating voor residentiële toepassingen: Kleiklinkers, natuursteen, betonstenen of keramische tegels zorgen voor een warme, verzorgde look.</li>
-
- <li>   Zware verharding voor industrie: Betonplaten, gestabiliseerde steenslag of asfaltverhardingen, aangepast aan intensief of zwaar verkeer.</li>
-
-  <li>  Ecologische oplossingen: Waterdoorlatende klinkers, grasdallen of grindstructuren voor een natuurlijke integratie en goede infiltratie van regenwater.</li>
-
-  <li>  Speciale toepassingen: Sportterreinen, wandelpaden in parken, loskades of zones met verhoogde belasting.</li>
-                  </ul>
->ul>🛠 Onze aanpak:
-
- <li>   Bodemstudie en keuze van fundering op basis van gebruiksintensiteit</li>
-
-<li>    Correcte opbouw in lagen: fundering, stabilisatie, afwerking</li>
-
-<li>    Afwatering via hellingsgraad, goten of infiltratie</li>
-
- <li>   Aandacht voor esthetiek en aansluiting op bestaande structuren</li>
-
- <li>   Optionele verlichting, boordstenen of groenzones</li>
-                  </ul>
-<ul>🧩 Voordelen van professionele verharding:</li>
-
-<li>    Onderhoudsvriendelijk en slijtvast</li>
-
- <li>   Verhoogde veiligheid en toegankelijkheid</li>
-
-<li>    Verbeterde afwatering en minder modder- of stofvorming</li>
-
-<li>    Esthetische meerwaarde voor terrein of gebouw</li>
-
-<li>    Lange levensduur bij minimale investering</li>
-                  </ul>
-We denken functioneel én visueel met je mee om een duurzame totaaloplossing te realiseren die dagelijks comfort en uitstraling biedt.
+                   data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+voor funderingen met moderne machines en technieken
 ">Verhadingengen</li>
                <li tabindex="0" data-title="Milieuvriendelijke Oplosingen"
-                   data-content="Bij Grondwerken BV geloven we dat duurzaamheid en technische topkwaliteit hand in hand kunnen gaan. We bevinden ons in een tijdperk waarin klimaatverandering, waterbeheer en ecologische verantwoordelijkheid centrale thema’s zijn in de bouwsector. Daarom hebben wij het onze missie gemaakt om bij elk project waar mogelijk milieuvriendelijke oplossingen te integreren — zonder compromissen op vlak van comfort, levensduur of esthetiek.
-
-Onze aanpak begint al bij het ontwerp. We analyseren niet alleen de technische eisen van het project, maar ook de impact op de natuurlijke omgeving. Waar mogelijk maken we gebruik van materialen die gerecycleerd, lokaal geproduceerd of hernieuwbaar zijn. We denken na over de waterhuishouding, de bodemstructuur, de biodiversiteit en de CO₂-uitstoot van onze machines.
-
-🌱 Wat we aanbieden op vlak van ecologisch bouwen:
-
-    Infiltratiekratten en regenwaterrecuperatie: Wij installeren buffersystemen die regenwater opvangen, hergebruiken of langzaam laten infiltreren in de bodem. Dit voorkomt wateroverlast, ontlast het rioleringssysteem en bespaart op waterfacturen.
-
-    Waterdoorlatende bestratingen: In plaats van harde, afsluitende verharding kiezen we voor materialen zoals grasdallen, grindroosters of poreuze klinkers die regenwater kunnen opnemen en doorlaten.
-
-    Gebruik van gerecycleerde materialen: Denk aan betonpuin als fundering, hergebruikte klinkers of circulaire bouwstoffen uit de regio. Dit vermindert de afvalstroom en transportemissies.
-
-    Groenzones integreren: Wij behouden waar mogelijk bestaande begroeiing, voorzien extra beplanting of creëren groene buffers die bijdragen aan een aangenamere leefomgeving en natuurlijke waterregulatie.
-
-    Emissiearm materieel: Onze machines voldoen aan de nieuwste normen voor uitstoot. Bovendien optimaliseren we onze planning om transportbewegingen te beperken.
-
-<ul>🌍 Waarom kiezen voor milieuvriendelijke oplossingen?
-
-  <li>  Verlaging van ecologische voetafdruk</li>
-
- <li>   Verhoogde weerbaarheid tegen klimaatveranderingen</li>
-
-<li>    Betere waterhuishouding op je terrein</li>
-
-<li>    Positieve impact op biodiversiteit en luchtkwaliteit</li>
-
- <li>   Aansluiting bij subsidies of gemeentelijke duurzaamheidsdoelen</li>
-                  </ul>
-Wij helpen je bouwen aan een toekomstgerichte omgeving, zonder dat je moet inboeten op gebruiksgemak of visuele kwaliteit.
+                   data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
 ">Milieuvriendelijke Oplosingengen</li>
                <li tabindex="0" data-title="Groundsabilitatie"
-                   data-content="Niet elk terrein is van nature geschikt voor verharding of bebouwing. Zachte, vochtige of instabiele gronden kunnen ernstige problemen veroorzaken: verzakkingen, scheuren, verminderde draagkracht en zelfs schade aan gebouwen of infrastructuur. Gelukkig is grondvervanging niet altijd nodig — met grondstabilisatie maken wij moeilijke bodems toch bruikbaar, veilig en duurzaam.
-
-Bij Grondwerken BV passen we geavanceerde stabilisatietechnieken toe waarbij de draagkracht van de bestaande grond wordt verhoogd door toevoeging van bindmiddelen zoals kalk, cement of hydraulisch actieve stoffen. Dit proces gebeurt ter plaatse en vereist geen afgraving en transport van grote hoeveelheden grond, wat het zowel ecologischer als goedkoper maakt.
-
-<ul>⚙️ Toepassingen van grondstabilisatie:
-
- <li>   Voorbereiding van funderingen onder wegen, parkings, gebouwen</li>
-
- <li>   Tijdelijke werven en rijwegen voor zwaar materiaal</li>
-
- <li>   Landbouwwegen of losplaatsen op onverharde gronden</li>
-
- <li>   Nivellering en ophogingen met behoud van structuur</li>
-
- <li>   Ondergronden voor industriële verharding met hoge belastingsgraad</li>
-                  </ul>
-<ul>🧪 Hoe gaan wij te werk?
-
- <li>   Bodemonderzoek: analyse van samenstelling, vochtigheid en structuur</li>
-
-<li>    Keuze van bindmiddel: op maat gekozen voor het type grond en gebruik</li>
-
-<li>    Homogene menging: met aangepaste machines en precisie</li>
-
- <li>   Verdichting: voor optimale sterkte en minimale waterdoorlatendheid</li>
-
- <li>   Afwerking: eventueel met funderingslagen of directe verharding erbovenop</li>
-                  </ul>
-<ul>🎯 Voordelen van grondstabilisatie:
-
-  <li>  Verhoogde draagkracht en minimale zetting</li>
-
-  <li>  Minder of geen nood aan grondafvoer en -aanvoer</li>
-
-   <li> Snelle uitvoering met beperkte werfkost</li>
-
- <li>   Geschikt voor permanente én tijdelijke oplossingen</li>
-                  </ul>
-🛡 Onze stabilisatietechniek is de sleutel tot het betrouwbaar maken van elk type ondergrond — met maximale sterkte en minimale kosten als resultaat.
+                   data-content="Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken.Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+Professionele grondwerken voor bouwprojecten, inclusief uitgravingen, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
+, egaliseren en voorbereidingen voor funderingen met moderne machines en technieken
 ">Grondsabilsatie</li>
             </ul>
          </aside>
@@ -697,12 +552,14 @@ Bij Grondwerken BV passen we geavanceerde stabilisatietechnieken toe waarbij de 
    <section class="projects" id="projecten">
       <h2>Recente Projecten</h2>
       <div class="grid" aria-label="Project foto overzicht">
-        <img src="img/img/werk46.jpg" alt="Milieuvriendelijke afwatering" />
-        <img src="img/img/werk52.jpg" alt="Milieuvriendelijke afwatering" />
-        <img src="img/img/werk43.jpg" alt="Milieuvriendelijke afwatering" />
-       <img src="img/img/werk16.jpg" alt="Milieuvriendelijke afwatering" />
-      </div>
-   </section>
+         <img src="img/werk5.jpg" alt="..." class="project-img" />
+         <img src="img/werk6.jpg" alt="..." class="project-img" />
+         <img src="img/werk7.jpg" alt="..." class="project-img" />
+         <img src="img/werk8.jpg" alt="..." class="project-img" />
+         <img src="img/werk9.jpg" alt="..." class="project-img" />
+         <img src="img/werk19.jpg" alt="..." class="project-img" />
+
+</section>
 
    <section class="contact" id="contact" aria-label="Contactinformatie">
       <h2>Contacteer ons</h2>
@@ -713,7 +570,7 @@ Bij Grondwerken BV passen we geavanceerde stabilisatietechnieken toe waarbij de 
    </section>
 
    <footer>
-      &copy; 2025 AllProWorks BV. Alle rechten voorbehouden.
+      &copy; 2025 Grondwerken BV. Alle rechten voorbehouden.
       <nav class="footer-nav" aria-label="Footer navigatie">
          <a href="index.html">Home</a>
          <a href="diensten.html">Diensten</a>
@@ -721,6 +578,9 @@ Bij Grondwerken BV passen we geavanceerde stabilisatietechnieken toe waarbij de 
          <a href="photos.html">Foto's</a>
          <a href="contact.html">Contact</a>
       </nav>
+      <div class="lightbox" id="lightbox">
+         <img src="" alt="Vergrote afbeelding" id="lightbox-img" />
+      </div>
       <ul class="social__list" role="list" aria-label="Sociale media links">
          <li>
             <a href="https://www.facebook.com/grondwerkenbv" target="_blank" rel="noopener" aria-label="Facebook">
@@ -755,9 +615,9 @@ Bij Grondwerken BV passen we geavanceerde stabilisatietechnieken toe waarbij de 
          const content = item.getAttribute('data-content');
 
          dienstDetail.innerHTML = `
-            <h3>${title}</h3>
-            <p>${content}</p>
-         `;
+               <h3>${title}</h3>
+               <p>${content}</p>
+            `;
 
          // ✅ Scroll only on interaction
          if (window.innerWidth <= 768) {
@@ -783,9 +643,9 @@ Bij Grondwerken BV passen we geavanceerde stabilisatietechnieken toe waarbij de 
       const title = defaultItem.getAttribute('data-title');
       const content = defaultItem.getAttribute('data-content');
       dienstDetail.innerHTML = `
-         <h3>${title}</h3>
-         <p>${content}</p>
-      `;
+            <h3>${title}</h3>
+            <p>${content}</p>
+         `;
    </script>
 
    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
@@ -800,7 +660,21 @@ Bij Grondwerken BV passen we geavanceerde stabilisatietechnieken toe waarbij de 
       });
    </script>
 
+   <script>
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
 
+      document.querySelectorAll('.project-img').forEach(img => {
+         img.addEventListener('click', () => {
+            lightboxImg.src = img.src;
+            lightbox.classList.add('active');
+         });
+      });
+
+      lightbox.addEventListener('click', () => {
+         lightbox.classList.remove('active');
+      });
+   </script>
 
 
 </body>
