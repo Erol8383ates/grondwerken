@@ -304,6 +304,7 @@
 
       .projects img {
          width: 100%;
+         height: 250px;
          border-radius: 0.8rem;
          transition: transform 0.3s, box-shadow 0.3s;
          box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
@@ -405,7 +406,7 @@
 
 <body>
    <nav>
-      <div class="nav-left">AllProWorks BV</div>
+      <div class="nav-left">All ProWorks BV</div>
       <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
       <ul id="nav-menu">
          <li><a href="index.html">Home</a></li>
@@ -682,10 +683,12 @@ Wij helpen je bouwen aan een toekomstgerichte omgeving, zonder dat je moet inboe
    <section class="projects" id="projecten">
       <h2>Recente Projecten</h2>
       <div class="grid" aria-label="Project foto overzicht">
-         <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Aanleg van nieuwe oprit met kasseien" />
-         <img src="https://images.unsplash.com/photo-1468071174046-657d9d351a40?auto=format&fit=crop&w=800&q=80" alt="Grondwerken met graafmachine in actie" />
-         <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Riolering leggen langs de weg" />
-         <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80" alt="Wegenbouw project in uitvoering" />
+         <img src="img/werk35.jpg" alt="Milieuvriendelijke afwatering" />
+         <img src="img/werk2.jpg" alt="Milieuvriendelijke afwatering" />
+         <img src="img/werk3.jpg" alt="Milieuvriendelijke afwatering" />
+         <img src="img/werk6.jpg" alt="Milieuvriendelijke afwatering" />
+         <img src="img/werk16.jpg" alt="Milieuvriendelijke afwatering" />
+         <img src="img/werk18.jpg" alt="Milieuvriendelijke afwatering" />
       </div>
    </section>
 
@@ -694,11 +697,14 @@ Wij helpen je bouwen aan een toekomstgerichte omgeving, zonder dat je moet inboe
       <p>Heeft u een vraag of wilt u een offerte? Neem contact met ons op via onderstaande gegevens:</p>
       <p><strong>Telefoon:</strong> +32 123 456 789</p>
       <p><strong>Email:</strong> info@grondwerkenbv.be</p>
-      <p><strong>Adres:</strong> Industrieweg 12, 1000 Brussel</p>
+      <p>
+         <strong>Adres:</strong> Excelsiorlaan 73,
+         1930 Zaventem
+      </p>
    </section>
 
    <footer>
-      &copy; 2025 AllProWorks BV. Alle rechten voorbehouden.
+      &copy; 2025 All ProWorks BV. Alle rechten voorbehouden.
       <nav class="footer-nav" aria-label="Footer navigatie">
          <a href="index.html">Home</a>
          <a href="diensten.html">Diensten</a>
@@ -740,9 +746,9 @@ Wij helpen je bouwen aan een toekomstgerichte omgeving, zonder dat je moet inboe
          const content = item.getAttribute('data-content');
 
          dienstDetail.innerHTML = `
-               <h3>${title}</h3>
-               <p>${content}</p>
-            `;
+                  <h3>${title}</h3>
+                  <p>${content}</p>
+               `;
 
          // ✅ Scroll only on interaction
          if (window.innerWidth <= 768) {
@@ -768,9 +774,9 @@ Wij helpen je bouwen aan een toekomstgerichte omgeving, zonder dat je moet inboe
       const title = defaultItem.getAttribute('data-title');
       const content = defaultItem.getAttribute('data-content');
       dienstDetail.innerHTML = `
-            <h3>${title}</h3>
-            <p>${content}</p>
-         `;
+               <h3>${title}</h3>
+               <p>${content}</p>
+            `;
    </script>
 
    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
